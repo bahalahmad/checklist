@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AssesmentCheckList Form</title>
+    <link href="css/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <form id="dataForm">
+
+            <!-- General Information Section -->
+            <div id="section1" class="section bg-white p-6 rounded shadow-md mb-4" style="display: block;">
+                <h2 class="text-3xl font-bold mb-6 text-black-600">General Information</h2>
+                <p class="text-sm text-red-500 mb-4">* indicates a required question</p>
+
+                <!-- District & Block Dropdown -->
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label for="district" class="block text-gray-700 text-lg font-semibold">District <span
+                            class="text-red-500">*</span></label>
+                    <select id="district" class="form-select mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                        name="district" required>
+                        <option value="">Select District</option>
+                        <option value="district1">District 1</option>
+                        <option value="district2">District 2</option>
+                        <option value="district3">District 3</option>
+                    </select>
+                </div>
+
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label for="block" class="block text-gray-700 text-lg font-semibold">Block <span
+                            class="text-red-500">*</span></label>
+                    <select id="block" class="form-select mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                        name="block" required>
+                        <option value="">Select Block</option>
+                        <option value="block1">Block 1</option>
+                        <option value="block2">Block 2</option>
+                        <option value="block3">Block 3</option>
+                    </select>
+                </div>
+
+                <!-- Sub-section: Block Development Officer -->
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Block Development Officer</h3>
+                    <label for="bdo_name" class="block text-gray-700 text-lg font-semibold">Name </label>
+                    <input type="text" id="bdo_name"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="bdo_name">
+
+                    <label for="bdo_contact" class="block text-gray-700 text-lg font-semibold mt-4">Contact Number
+                    </label>
+                    <input type="tel" id="bdo_contact"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="bdo_contact">
+
+                    <label for="bdo_email" class="block text-gray-700 text-lg font-semibold mt-4">Email ID</label>
+                    <input type="email" id="bdo_email"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="bdo_email">
+                </div>
+
+                <!-- Sub-section: Sub District Magistrate -->
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Sub District Magvistrate</h3>
+                    <label for="sdm_name" class="block text-gray-700 text-lg font-semibold">Name </label>
+                    <input type="text" id="sdm_name"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="sdm_name">
+
+                    <label for="sdm_contact" class="block text-gray-700 text-lg font-semibold mt-4">Contact
+                        Number</label>
+                    <input type="tel" id="sdm_contact"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="sdm_contact">
+
+                    <label for="sdm_email" class="block text-gray-700 text-lg font-semibold mt-4">Email ID</label>
+                    <input type="email" id="sdm_email"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="sdm_email">
+                </div>
+
+                <!-- Sub-section: Block Medical Officer -->
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Block Medical Officer</h3>
+                    <label for="bmo_name" class="block text-gray-700 text-lg font-semibold">Name </label>
+                    <input type="text" id="bmo_name"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="bmo_name">
+
+                    <label for="bmo_contact" class="block text-gray-700 text-lg font-semibold mt-4">Contact
+                        Number</label>
+                    <input type="tel" id="bmo_contact"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="bmo_contact">
+
+                    <label for="bmo_email" class="block text-gray-700 text-lg font-semibold mt-4">Email ID</label>
+                    <input type="email" id="bmo_email"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="bmo_email">
+                </div>
+
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-6">Demographic Details</h3>
+
+                    <!-- Area Type -->
+                    <label class="block text-gray-700 text-lg font-semibold mb-2">Area Type <span
+                            class="text-red-500">*</span></label>
+                    <div class="mt-2 mb-6">
+                        <label class="inline-flex items-center mr-6">
+                            <input type="radio" class="form-radio text-blue-600" name="area_type" value="urban"
+                                required>
+                            <span class="ml-2 text-gray-600">Urban</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-blue-600" name="area_type" value="rural">
+                            <span class="ml-2 text-gray-600">Rural</span>
+                        </label>
+                    </div>
+
+                    <!-- Number Inputs for Health Facilities -->
+                    <label for="num_villages" class="block text-gray-700 text-lg font-semibold mb-2">Number of
+                        Villages/Gram Panchayats/Wards in the Block <span class="text-red-500">*</span></label>
+                    <input type="number" id="num_villages"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
+                        name="num_villages" required>
+
+                    <label for="health_facilities" class="block text-gray-700 text-lg font-semibold mb-2">Total Health
+                        Facilities in the Block <span class="text-red-500">*</span></label>
+                    <input type="number" id="health_facilities"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
+                        name="health_facilities" required>
+
+                    <label for="total_phc" class="block text-gray-700 text-lg font-semibold mb-2">Total PHC <span
+                            class="text-red-500">*</span></label>
+                    <input type="number" id="total_phc"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4" name="total_phc"
+                        required>
+
+                    <label for="total_chc" class="block text-gray-700 text-lg font-semibold mb-2">Total CHC <span
+                            class="text-red-500">*</span></label>
+                    <input type="number" id="total_chc"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4" name="total_chc"
+                        required>
+
+                    <label for="total_sub_centre" class="block text-gray-700 text-lg font-semibold mb-2">Total
+                        Sub-centre <span class="text-red-500">*</span></label>
+                    <input type="number" id="total_sub_centre"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
+                        name="total_sub_centre" required>
+
+                    <label for="aanganwadi_centre" class="block text-gray-700 text-lg font-semibold mb-2">No of
+                        Aanganwadi centre in the block <span class="text-red-500">*</span></label>
+                    <input type="number" id="aanganwadi_centre"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
+                        name="aanganwadi_centre" required>
+                    <label for="population_covered" class="block text-gray-700 text-lg font-semibold mb-2">Population
+                        covered by the block <span class="text-red-500">*</span></label>
+                    <input type="number" id="population_covered"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                        name="population_covered" required>
+
+                    <label for="eligible_couple" class="block text-gray-700 text-lg font-semibold mb-2">Total Eligible
+                        couple <span class="text-red-500">*</span></label>
+                    <input type="number" id="eligible_couple"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
+                        name="eligible_couple" required>
+
+                    <label for="pregnant_women" class="block text-gray-700 text-lg font-semibold mb-2">Total Pregnant
+                        Women <span class="text-red-500">*</span></label>
+                    <input type="number" id="pregnant_women"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
+                        name="pregnant_women" required>
+
+                    <label for="live_birth" class="block text-gray-700 text-lg font-semibold mb-2">Total live birth
+                        <span class="text-red-500">*</span></label>
+                    <input type="number" id="live_birth"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
+                        name="live_birth" required>
+
+                    <label for="children_0_1" class="block text-gray-700 text-lg font-semibold mb-2">Estimated children
+                        0-1 years of age <span class="text-red-500">*</span></label>
+                    <input type="number" id="children_0_1"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
+                        name="children_0_1" required>
+
+                    <label for="population_above_30" class="block text-gray-700 text-lg font-semibold mb-2">Total
+                        population above the age of 30 years <span class="text-red-500">*</span></label>
+                    <input type="number" id="population_above_30"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
+                        name="population_above_30" required>
+
+                    <!-- PMJAY Card Issued -->
+                    <label for="abha_id" class="block text-gray-700 text-lg font-semibold mb-2">PMJAY Card Issued (Till
+                        Date)
+                        <span class="text-red-500">*</span></label>
+                    <input type="number" id="pmjay_card"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4" name="abha_id"
+                        required>
+
+                    <!-- Number of ABHA ID -->
+                    <label for="abha_id" class="block text-gray-700 text-lg font-semibold mb-2">Number of ABHA ID card
+                        generated (till date) <span class="text-red-500">*</span></label>
+                    <input type="number" id="abha_id"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4" name="abha_id"
+                        required>   
+                </div>
+
+
+
+                <!-- Save & Next Button -->
+                <div class="flex justify-end mt-6">
+                    <button type="button" id="saveNextButtonSection1"
+                        class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300"
+                        onclick="saveAndNext(1)">Save & Next</button>
+                </div>
+            </div>
+
+            <!-- Block Preparedness Section -->
+
+            <div id="section2" class="section bg-white p-6 rounded shadow-md mb-4" style="display: none;">
+                <!-- Section Heading Aligned to the Left -->
+                <h2 class="text-3xl font-bold mb-6 text-black-600">Block Preparedness</h2>
+
+                <!-- Required Questions Note at the Top -->
+                <p class="text-sm text-red-500 mb-4">* indicates a required question</p>
+
+                <!-- Questions -->
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold" for="orientation_completed">Orientation on
+                        Aspirational Blocks Programme / Sampurnata Abhiyaan completed? <span
+                            class="text-red-500">*</span></label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-blue-600" id="orientation_completed_yes"
+                                name="orientation_completed" value="yes" required>
+                            <span class="ml-2 text-gray-600">Yes</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6">
+                            <input type="radio" class="form-radio text-blue-600" id="orientation_completed_no"
+                                name="orientation_completed" value="no">
+                            <span class="ml-2 text-gray-600">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold" for="action_plan_prepared">Block health
+                        action plan prepared and available (verify the hard copy)? <span
+                            class="text-red-500">*</span></label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-blue-600" id="action_plan_prepared_yes"
+                                name="action_plan_prepared" value="yes" required>
+                            <span class="ml-2 text-gray-600">Yes</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6">
+                            <input type="radio" class="form-radio text-blue-600" id="action_plan_prepared_no"
+                                name="action_plan_prepared" value="no">
+                            <span class="ml-2 text-gray-600">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold" for="mchn_plan_available">MCHN / RI plan
+                        available with BCMO? <span class="text-red-500">*</span></label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-blue-600" id="mchn_plan_available_yes"
+                                name="mchn_plan_available" value="yes" required>
+                            <span class="ml-2 text-gray-600">Yes</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6">
+                            <input type="radio" class="form-radio text-blue-600" id="mchn_plan_available_no"
+                                name="mchn_plan_available" value="no">
+                            <span class="ml-2 text-gray-600">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold" for="map_displayed">Latest map of the Block
+                        displayed at the BCMO office? <span class="text-red-500">*</span></label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-blue-600" id="map_displayed_yes"
+                                name="map_displayed" value="yes" required>
+                            <span class="ml-2 text-gray-600">Yes</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6">
+                            <input type="radio" class="form-radio text-blue-600" id="map_displayed_no"
+                                name="map_displayed" value="no">
+                            <span class="ml-2 text-gray-600">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Key Focus Areas -->
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold" for="key_focus_areas">Key focus areas
+                        identified for strategic interventions? <span class="text-red-500">*</span></label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-blue-600" id="key_focus_areas_yes"
+                                name="key_focus_areas" value="yes" required>
+                            <span class="ml-2 text-gray-600">Yes</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6">
+                            <input type="radio" class="form-radio text-blue-600" id="key_focus_areas_no"
+                                name="key_focus_areas" value="no">
+                            <span class="ml-2 text-gray-600">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold"
+                        for="disseminated_with_health_functionaries">Whether Block Health Action Plan disseminated with
+                        all health functionaries? <span class="text-red-500">*</span></label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-blue-600"
+                                id="disseminated_with_health_functionaries_yes"
+                                name="disseminated_with_health_functionaries" value="yes" required>
+                            <span class="ml-2 text-gray-600">Yes</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6">
+                            <input type="radio" class="form-radio text-blue-600"
+                                id="disseminated_with_health_functionaries_no"
+                                name="disseminated_with_health_functionaries" value="no">
+                            <span class="ml-2 text-gray-600">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold" for="monthly_dhs_meeting">Whether monthly
+                        DHS meeting with all the line departments organized under chairmanship of DC/DM for Aspirational
+                        Blocks Programme? <span class="text-red-500">*</span></label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-blue-600" id="monthly_dhs_meeting_yes"
+                                name="monthly_dhs_meeting" value="yes" required>
+                            <span class="ml-2 text-gray-600">Yes</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6">
+                            <input type="radio" class="form-radio text-blue-600" id="monthly_dhs_meeting_no"
+                                name="monthly_dhs_meeting" value="no">
+                            <span class="ml-2 text-gray-600">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold" for="review_mechanism">Is there any review
+                        mechanism in place for the overall improvement of KPIs? <span
+                            class="text-red-500">*</span></label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-blue-600" id="review_mechanism_yes"
+                                name="review_mechanism" value="yes" required>
+                            <span class="ml-2 text-gray-600">Yes</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6">
+                            <input type="radio" class="form-radio text-blue-600" id="review_mechanism_no"
+                                name="review_mechanism" value="no">
+                            <span class="ml-2 text-gray-600">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold" for="facilities_for_nqas">Has the block
+                        identified the facilities for NQAS certification? <span class="text-red-500">*</span></label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-blue-600" id="facilities_for_nqas_yes"
+                                name="facilities_for_nqas" value="yes" required>
+                            <span class="ml-2 text-gray-600">Yes</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6">
+                            <input type="radio" class="form-radio text-blue-600" id="facilities_for_nqas_no"
+                                name="facilities_for_nqas" value="no">
+                            <span class="ml-2 text-gray-600">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="nqasDetails" class="hidden">
+                    <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                        <label class="block text-gray-700 text-lg font-semibold" for="num_facilities_for_nqas">Total
+                            Number of facilities identified for NQAS certification <span
+                                class="text-red-500">*</span></label>
+                        <input type="number" id="num_facilities_for_nqas"
+                            class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                            name="num_facilities_for_nqas" readonly>
+                    </div>
+
+                    <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                        <label class="block text-gray-700 text-lg font-semibold" for="num_phc_for_nqas">No. of PHC
+                            Identified for NQAS certification <span class="text-red-500">*</span></label>
+                        <input type="number" id="num_phc_for_nqas"
+                            class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                            name="num_phc_for_nqas" required>
+                    </div>
+
+                    <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                        <label class="block text-gray-700 text-lg font-semibold" for="num_chc_for_nqas">No. of CHC
+                            Identified for NQAS certification <span class="text-red-500">*</span></label>
+                        <input type="number" id="num_chc_for_nqas"
+                            class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                            name="num_chc_for_nqas" required>
+                    </div>
+
+                    <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                        <label class="block text-gray-700 text-lg font-semibold" for="num_sc_for_nqas">No. of SC
+                            Identified for NQAS certification <span class="text-red-500">*</span></label>
+                        <input type="number" id="num_sc_for_nqas"
+                            class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                            name="num_sc_for_nqas" required>
+                    </div>
+                </div>
+
+
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold" for="referral_mechanism">Is the referral
+                        mechanism established from SC-HWC up to DH/other referral centre? <span
+                            class="text-red-500">*</span></label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-blue-600" id="referral_mechanism_yes"
+                                name="referral_mechanism" value="yes" required>
+                            <span class="ml-2 text-gray-600">Yes</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6">
+                            <input type="radio" class="form-radio text-blue-600" id="referral_mechanism_no"
+                                name="referral_mechanism" value="no">
+                            <span class="ml-2 text-gray-600">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="flex justify-between mb-6">
+                    <!-- Back Button on the left -->
+                    <button type="button"
+                        class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 transform translate-y-[-10%]"
+                        onclick="goBackToSection1()">Back</button>
+
+                    <!-- Save & Next Button on the right -->
+                    <button type="button" id="saveNextButtonSection2"
+                        class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300"
+                        onclick="saveAndNext(2)">Save & Next</button>
+                </div>
+            </div>
+
+            <!-- Section 3 Health Goveranance & finance -->
+            <div id="section3" class="section bg-white p-6 rounded shadow-md mb-4" style="display: none;">
+                <!-- Section Heading Aligned to the Left -->
+                <h2 class="text-3xl font-bold mb-6 text-black-600">Block Programme Management</h2>
+
+                <!-- Required Questions Note at the Top -->
+                <p class="text-sm text-red-500 mb-4">* indicates a required question</p>
+
+                <!-- Block Programme Management Unit -->
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold" for="block_programme_management_unit">
+                        Whether the Block Programme Management Unit is existing? <span class="text-red-500">*</span>
+                    </label>
+                    <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Block Programme Manager Checkbox -->
+                        <label class="inline-flex items-center space-x-2 hover:bg-gray-100 p-2 rounded transition-all">
+                            <input type="checkbox" class="form-checkbox text-blue-600 focus:ring-2 focus:ring-blue-400"
+                                id="block_program_manager" name="block_program_manager">
+                            <span class="text-gray-600">Block Programme Manager</span>
+                        </label>
+
+                        <!-- Block Data Manager Checkbox -->
+                        <label class="inline-flex items-center space-x-2 hover:bg-gray-100 p-2 rounded transition-all">
+                            <input type="checkbox" class="form-checkbox text-blue-600 focus:ring-2 focus:ring-blue-400"
+                                id="block_data_manager" name="block_data_manager">
+                            <span class="text-gray-600">Block Data Manager</span>
+                        </label>
+
+                        <!-- Block Account Manager Checkbox -->
+                        <label class="inline-flex items-center space-x-2 hover:bg-gray-100 p-2 rounded transition-all">
+                            <input type="checkbox" class="form-checkbox text-blue-600 focus:ring-2 focus:ring-blue-400"
+                                id="block_account_manager" name="block_account_manager">
+                            <span class="text-gray-600">Block Account Manager</span>
+                        </label>
+
+                        <!-- Block Health Supervisor Checkbox -->
+                        <label class="inline-flex items-center space-x-2 hover:bg-gray-100 p-2 rounded transition-all">
+                            <input type="checkbox" class="form-checkbox text-blue-600 focus:ring-2 focus:ring-blue-400"
+                                id="block_health_supervisor" name="block_health_supervisor">
+                            <span class="text-gray-600">Block Health Supervisor</span>
+                        </label>
+
+                        <!-- Any Other Checkbox and Input -->
+                        <label
+                            class="inline-flex items-center space-x-2 sm:col-span-2 lg:col-span-1 hover:bg-gray-100 p-2 rounded transition-all">
+                            <input type="checkbox" class="form-checkbox text-blue-600 focus:ring-2 focus:ring-blue-400"
+                                id="other_block_role" name="other_block_role">
+                            <span class="text-gray-600">Any other (specify)</span>
+                        </label>
+                        <div class="sm:col-span-2 lg:col-span-1">
+                            <input type="text" id="other_role_specify" name="other_role_specify" placeholder="Specify"
+                                class="mt-2 p-2 border rounded w-full text-sm" style="display:none;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold" for="block_quality_cell">Whether the Block
+                        Public Health Unit(BPHU) is set? <span class="text-red-500">*</span></label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-indigo-600" id="block_quality_cell_yes"
+                                name="block_quality_cell" value="yes">
+                            <span class="ml-2 text-gray-600">Yes</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6">
+                            <input type="radio" class="form-radio text-indigo-600" id="block_quality_cell_no"
+                                name="block_quality_cell" value="no">
+                            <span class="ml-2 text-gray-600">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Which components are functional -->
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold" for="functional_components">
+                        Which components are functional? <span class="text-red-500">*</span>
+                    </label>
+                    <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Block Public Health Unit Checkbox -->
+                        <label class="inline-flex items-center space-x-2 hover:bg-gray-100 p-2 rounded transition-all">
+                            <input type="checkbox"
+                                class="form-checkbox text-green-600 focus:ring-2 focus:ring-green-400"
+                                id="block_public_health_unit" name="block_public_health_unit">
+                            <span class="text-gray-600">Block Public Health Unit</span>
+                        </label>
+
+                        <!-- Block Public Health Lab Checkbox -->
+                        <label class="inline-flex items-center space-x-2 hover:bg-gray-100 p-2 rounded transition-all">
+                            <input type="checkbox"
+                                class="form-checkbox text-green-600 focus:ring-2 focus:ring-green-400"
+                                id="block_public_health_lab" name="block_public_health_lab">
+                            <span class="text-gray-600">Block Public Health Lab</span>
+                        </label>
+
+                        <!-- Block HMIS Cell Checkbox -->
+                        <label class="inline-flex items-center space-x-2 hover:bg-gray-100 p-2 rounded transition-all">
+                            <input type="checkbox"
+                                class="form-checkbox text-green-600 focus:ring-2 focus:ring-green-400"
+                                id="block_hmis_cell" name="block_hmis_cell">
+                            <span class="text-gray-600">Block HMIS Cell</span>
+                        </label>
+                    </div>
+                </div>
+
+
+                <!-- Is Block Quality Cell Established? -->
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold" for="block_quality_cell">Is Block Quality
+                        Cell Established? <span class="text-red-500">*</span></label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-indigo-600" id="block_quality_cell_yes"
+                                name="block_quality_cell" value="yes">
+                            <span class="ml-2 text-gray-600">Yes</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6">
+                            <input type="radio" class="form-radio text-indigo-600" id="block_quality_cell_no"
+                                name="block_quality_cell" value="no">
+                            <span class="ml-2 text-gray-600">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Any Additional funds proposed by ditrict in NHM PIP -->
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold" for="block_quality_cell">Any addtional
+                        funds proposed by district in NHM PIP FOR Aspirational Blocks Programme activities <span
+                            class="text-red-500">*</span></label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-indigo-600" id="block_quality_cell_yes"
+                                name="block_quality_cell" value="yes">
+                            <span class="ml-2 text-gray-600">Yes</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6">
+                            <input type="radio" class="form-radio text-indigo-600" id="block_quality_cell_no"
+                                name="block_quality_cell" value="no">
+                            <span class="ml-2 text-gray-600">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Any additional funds avaialable for activities -->
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold" for="block_quality_cell">Any additional
+                        funds available for activites under CSR/JICS/other resources?<span
+                            class="text-red-500">*</span></label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-indigo-600" id="block_quality_cell_yes"
+                                name="block_quality_cell" value="yes">
+                            <span class="ml-2 text-gray-600">Yes</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6">
+                            <input type="radio" class="form-radio text-indigo-600" id="block_quality_cell_no"
+                                name="block_quality_cell" value="no">
+                            <span class="ml-2 text-gray-600">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Activities Proposed -->
+                <div id="activities_proposed_div" class="mb-6 bg-white p-6 rounded-lg shadow-md" style="display:none;">
+                    <label class="block text-gray-700 text-lg font-semibold" for="activities_proposed">Mention the
+                        activities proposed <span class="text-red-500">*</span></label>
+                    <textarea id="activities_proposed" name="activities_proposed" placeholder="Describe activities"
+                        class="mt-2 p-2 border rounded w-full text-sm"></textarea>
+                </div>
+
+                <!-- is the direct beneficiary transfer (dbt) done timely?-->
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold" for="block_quality_cell">Is the Direct
+                        Beneficiary Transfer (DBT) done timely?<span class="text-red-500">*</span></label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-indigo-600" id="block_quality_cell_yes"
+                                name="block_quality_cell" value="yes">
+                            <span class="ml-2 text-gray-600">Yes</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6">
+                            <input type="radio" class="form-radio text-indigo-600" id="block_quality_cell_no"
+                                name="block_quality_cell" value="no">
+                            <span class="ml-2 text-gray-600">No</span>
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <!-- Number Inputs for Health Facilities -->
+                    <label for="num_villages" class="block text-gray-700 text-lg font-semibold mb-2">
+                        Total no. of beneficiary for JSSK <span class="text-red-500">*</span></label>
+                    <input type="number" id="num_villages"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
+                        name="num_villages" required>
+
+                    <label for="health_facilities" class="block text-gray-700 text-lg font-semibold mb-2">Total no. of
+                        beneficiary for JSY<span class="text-red-500">*</span></label>
+                    <input type="number" id="health_facilities"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
+                        name="health_facilities" required>
+
+                    <label for="total_phc" class="block text-gray-700 text-lg font-semibold mb-2">Total no. of
+                        beneficiary for NTEP <span class="text-red-500">*</span></label>
+                    <input type="number" id="total_phc"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4" name="total_phc"
+                        required>
+                </div>
+
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold" for="block_quality_cell">Is the ASHA
+                        payment done timely?<span class="text-red-500">*</span></label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-indigo-600" id="block_quality_cell_yes"
+                                name="block_quality_cell" value="yes">
+                            <span class="ml-2 text-gray-600">Yes</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6">
+                            <input type="radio" class="form-radio text-indigo-600" id="block_quality_cell_no"
+                                name="block_quality_cell" value="no">
+                            <span class="ml-2 text-gray-600">No</span>
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <label class="block text-gray-700 text-lg font-semibold" for="block_quality_cell">Whether the Jan
+                        Aarogya Samiti and Rogi Kalyan committees constituted?<span
+                            class="text-red-500">*</span></label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-indigo-600" id="block_quality_cell_yes"
+                                name="block_quality_cell" value="yes">
+                            <span class="ml-2 text-gray-600">Yes</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6">
+                            <input type="radio" class="form-radio text-indigo-600" id="block_quality_cell_no"
+                                name="block_quality_cell" value="no">
+                            <span class="ml-2 text-gray-600">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Save & Next Button -->
+                <div class="flex justify-between mb-6">
+                    <!-- Back Button on the left -->
+                    <button type="button"
+                        class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300"
+                        onclick="goBackToSection2()">Back</button>
+
+                    <!-- Save & Next Button on the right -->
+                    <button type="button" id="saveNextButtonSection3"
+                        class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300"
+                        onclick="saveAndNext(3)">Save & Next</button>
+                </div>
+            </div>
+            <!-- section 4 -->
+            <div id="section4" class="section bg-white p-6 rounded shadow-md mb-4" style="display: none;">
+                <!-- Section Heading Aligned to the Left -->
+                <h2 class="text-3xl font-bold mb-6 text-black-600">Health Care Infrastructure</h2>
+                <!-- Required Questions Note at the Top -->
+                <p class="text-sm text-red-500 mb-4">* indicates a required question</p>
+
+                <!-- Medical College Subsection -->
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                        <h3 class="text-2xl font-semibold text-blue-600 mb-4">Medical College</h3>
+            
+                <!-- Sanctioned, Functional, and Non-Functional under one div -->
+                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                    <!-- Sanc
+                     tioned and Functional in one line, responsive layout -->
+                    <div class="flex flex-wrap justify-between mb-4 space-x-4 sm:space-y-0">
+                        <!-- Sanctioned -->
+                        <div class="w-full sm:w-1/2 pr-0 sm:pr-3 mb-4 sm:mb-0">
+                            <label class="block text-gray-700 text-lg font-semibold mb-2" for="sanctioned">Sanctioned <span class="text-red-500">*</span></label>
+                            <input type="number" id="sanctioned" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="sanctioned" required oninput="updateNonFunctional()">
+                        </div>
+            
+                        <!-- Functional with gap on the right -->
+                        <div class="w-full sm:w-1/2 pl-0 sm:pl-3 mb-4 sm:mb-0">
+                            <label class="block text-gray-700 text-lg font-semibold mb-2" for="functional">Functional <span class="text-red-500">*</span></label>
+                            <input type="number" id="functional" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="functional" required oninput="updateNonFunctional()">
+                            <div class="w-full flex flex-col justify-end mt-2 sm:pl-3">
+                                <label class="block text-gray-700 text-sm font-semibold mb-2" for="non_functional">Non Functional:</label>
+                                <!-- <input type="number" id="non_functional" class="form-input mt-2 block sm:w-1/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-sm focus:outline-none focus:border-blue-500" name="non_functional" readonly> -->
+                            </div>
+                        </div>
+                     </div>
+                </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">District Hospital</h3>
+                    <!-- Sanctioned, Functional, and Non-Functional under one div -->
+                    <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                        <!-- Sanc
+                         tioned and Functional in one line, responsive layout -->
+                        <div class="flex flex-wrap justify-between mb-4 space-x-4 sm:space-y-0">
+                            <!-- Sanctioned -->
+                            <div class="w-full sm:w-1/2 pr-0 sm:pr-3 mb-4 sm:mb-0">
+                                <label class="block text-gray-700 text-lg font-semibold mb-2" for="sanctioned">Sanctioned <span class="text-red-500">*</span></label>
+                                <input type="number" id="sanctioned" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="sanctioned" required oninput="updateNonFunctional()">
+                            </div>
+                            <!-- Functional with gap on the right -->
+                            <div class="w-full sm:w-1/2 pl-0 sm:pl-3 mb-4 sm:mb-0">
+                                <label class="block text-gray-700 text-lg font-semibold mb-2" for="functional">Functional <span class="text-red-500">*</span></label>
+                                <input type="number" id="functional" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="functional" required oninput="updateNonFunctional()">
+                                <div class="w-full flex flex-col justify-end mt-2 sm:pl-3">
+                                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="non_functional">Non Functional:</label>
+                                    <!-- <input type="number" id="non_functional" class="form-input mt-2 block sm:w-1/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-sm focus:outline-none focus:border-blue-500" name="non_functional" readonly> -->
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                        <h3 class="text-2xl font-semibold text-blue-600 mb-4">Sub-District Hospital</h3>
+                    
+                        <!-- Sanctioned, Functional, and Non-Functional under one div -->
+                        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                            <!-- Sanc
+                             tioned and Functional in one line, responsive layout -->
+                            <div class="flex flex-wrap justify-between mb-4 space-x-4 sm:space-y-0">
+                                <!-- Sanctioned -->
+                                <div class="w-full sm:w-1/2 pr-0 sm:pr-3 mb-4 sm:mb-0">
+                                    <label class="block text-gray-700 text-lg font-semibold mb-2" for="sanctioned">Sanctioned <span class="text-red-500">*</span></label>
+                                    <input type="number" id="sanctioned" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="sanctioned" required oninput="updateNonFunctional()">
+                                </div>
+                    
+                                <!-- Functional with gap on the right -->
+                                <div class="w-full sm:w-1/2 pl-0 sm:pl-3 mb-4 sm:mb-0">
+                                    <label class="block text-gray-700 text-lg font-semibold mb-2" for="functional">Functional <span class="text-red-500">*</span></label>
+                                    <input type="number" id="functional" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="functional" required oninput="updateNonFunctional()">
+                                    <div class="w-full flex flex-col justify-end mt-2 sm:pl-3">
+                                        <label class="block text-gray-700 text-sm font-semibold mb-2" for="non_functional">Non Functional:</label>
+                                        <!-- <input type="number" id="non_functional" class="form-input mt-2 block sm:w-1/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-sm focus:outline-none focus:border-blue-500" name="non_functional" readonly> -->
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                 </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                            <h3 class="text-2xl font-semibold text-blue-600 mb-4">Community Health Centre(CHC)</h3>
+                        
+                            <!-- Sanctioned, Functional, and Non-Functional under one div -->
+                            <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                                <!-- Sanc
+                                 tioned and Functional in one line, responsive layout -->
+                                <div class="flex flex-wrap justify-between mb-4 space-x-4 sm:space-y-0">
+                                    <!-- Sanctioned -->
+                                    <div class="w-full sm:w-1/2 pr-0 sm:pr-3 mb-4 sm:mb-0">
+                                        <label class="block text-gray-700 text-lg font-semibold mb-2" for="sanctioned">Sanctioned <span class="text-red-500">*</span></label>
+                                        <input type="number" id="sanctioned" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="sanctioned" required oninput="updateNonFunctional()">
+                                    </div>
+                        
+                                    <!-- Functional with gap on the right -->
+                                    <div class="w-full sm:w-1/2 pl-0 sm:pl-3 mb-4 sm:mb-0">
+                                        <label class="block text-gray-700 text-lg font-semibold mb-2" for="functional">Functional <span class="text-red-500">*</span></label>
+                                        <input type="number" id="functional" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="functional" required oninput="updateNonFunctional()">
+                                        <div class="w-full flex flex-col justify-end mt-2 sm:pl-3">
+                                            <label class="block text-gray-700 text-sm font-semibold mb-2" for="non_functional">Non Functional:</label>
+                                            <!-- <input type="number" id="non_functional" class="form-input mt-2 block sm:w-1/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-sm focus:outline-none focus:border-blue-500" name="non_functional" readonly> -->
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                                <h3 class="text-2xl font-semibold text-blue-600 mb-4">FRUs Community Health Centre(FRU CHC)</h3>
+                            
+                                <!-- Sanctioned, Functional, and Non-Functional under one div -->
+                                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                                    <!-- Sanc
+                                     tioned and Functional in one line, responsive layout -->
+                                    <div class="flex flex-wrap justify-between mb-4 space-x-4 sm:space-y-0">
+                                        <!-- Sanctioned -->
+                                        <div class="w-full sm:w-1/2 pr-0 sm:pr-3 mb-4 sm:mb-0">
+                                            <label class="block text-gray-700 text-lg font-semibold mb-2" for="sanctioned">Sanctioned <span class="text-red-500">*</span></label>
+                                            <input type="number" id="sanctioned" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="sanctioned" required oninput="updateNonFunctional()">
+                                        </div>
+                            
+                                        <!-- Functional with gap on the right -->
+                                        <div class="w-full sm:w-1/2 pl-0 sm:pl-3 mb-4 sm:mb-0">
+                                            <label class="block text-gray-700 text-lg font-semibold mb-2" for="functional">Functional <span class="text-red-500">*</span></label>
+                                            <input type="number" id="functional" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="functional" required oninput="updateNonFunctional()">
+                                            <div class="w-full flex flex-col justify-end mt-2 sm:pl-3">
+                                                <label class="block text-gray-700 text-sm font-semibold mb-2" for="non_functional">Non Functional:</label>
+                                                <!-- <input type="number" id="non_functional" class="form-input mt-2 block sm:w-1/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-sm focus:outline-none focus:border-blue-500" name="non_functional" readonly> -->
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Primary Health Centre(PHC)</h3>
+                                
+                                    <!-- Sanctioned, Functional, and Non-Functional under one div -->
+                                    <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                                        <!-- Sanc
+                                         tioned and Functional in one line, responsive layout -->
+                                        <div class="flex flex-wrap justify-between mb-4 space-x-4 sm:space-y-0">
+                                            <!-- Sanctioned -->
+                                            <div class="w-full sm:w-1/2 pr-0 sm:pr-3 mb-4 sm:mb-0">
+                                                <label class="block text-gray-700 text-lg font-semibold mb-2" for="sanctioned">Sanctioned <span class="text-red-500">*</span></label>
+                                                <input type="number" id="sanctioned" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="sanctioned" required oninput="updateNonFunctional()">
+                                            </div>
+                                
+                                            <!-- Functional with gap on the right -->
+                                            <div class="w-full sm:w-1/2 pl-0 sm:pl-3 mb-4 sm:mb-0">
+                                                <label class="block text-gray-700 text-lg font-semibold mb-2" for="functional">Functional <span class="text-red-500">*</span></label>
+                                                <input type="number" id="functional" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="functional" required oninput="updateNonFunctional()">
+                                                <div class="w-full flex flex-col justify-end mt-2 sm:pl-3">
+                                                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="non_functional">Non Functional:</label>
+                                                    <!-- <input type="number" id="non_functional" class="form-input mt-2 block sm:w-1/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-sm focus:outline-none focus:border-blue-500" name="non_functional" readonly> -->
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                                        <h3 class="text-2xl font-semibold text-blue-600 mb-4">24*7 PHC</h3>
+                                    
+                                        <!-- Sanctioned, Functional, and Non-Functional under one div -->
+                                        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                                            <!-- Sanc
+                                             tioned and Functional in one line, responsive layout -->
+                                            <div class="flex flex-wrap justify-between mb-4 space-x-4 sm:space-y-0">
+                                                <!-- Sanctioned -->
+                                                <div class="w-full sm:w-1/2 pr-0 sm:pr-3 mb-4 sm:mb-0">
+                                                    <label class="block text-gray-700 text-lg font-semibold mb-2" for="sanctioned">Sanctioned <span class="text-red-500">*</span></label>
+                                                    <input type="number" id="sanctioned" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="sanctioned" required oninput="updateNonFunctional()">
+                                                </div>
+                                    
+                                                <!-- Functional with gap on the right -->
+                                                <div class="w-full sm:w-1/2 pl-0 sm:pl-3 mb-4 sm:mb-0">
+                                                    <label class="block text-gray-700 text-lg font-semibold mb-2" for="functional">Functional <span class="text-red-500">*</span></label>
+                                                    <input type="number" id="functional" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="functional" required oninput="updateNonFunctional()">
+                                                    <div class="w-full flex flex-col justify-end mt-2 sm:pl-3">
+                                                        <label class="block text-gray-700 text-sm font-semibold mb-2" for="non_functional">Non Functional:</label>
+                                                        <!-- <input type="number" id="non_functional" class="form-input mt-2 block sm:w-1/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-sm focus:outline-none focus:border-blue-500" name="non_functional" readonly> -->
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                                            <h3 class="text-2xl font-semibold text-blue-600 mb-4">AAM-PHC</h3>
+                                        
+                                            <!-- Sanctioned, Functional, and Non-Functional under one div -->
+                                            <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                                                <!-- Sanc
+                                                 tioned and Functional in one line, responsive layout -->
+                                                <div class="flex flex-wrap justify-between mb-4 space-x-4 sm:space-y-0">
+                                                    <!-- Sanctioned -->
+                                                    <div class="w-full sm:w-1/2 pr-0 sm:pr-3 mb-4 sm:mb-0">
+                                                        <label class="block text-gray-700 text-lg font-semibold mb-2" for="sanctioned">Sanctioned <span class="text-red-500">*</span></label>
+                                                        <input type="number" id="sanctioned" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="sanctioned" required oninput="updateNonFunctional()">
+                                                    </div>
+                                        
+                                                    <!-- Functional with gap on the right -->
+                                                    <div class="w-full sm:w-1/2 pl-0 sm:pl-3 mb-4 sm:mb-0">
+                                                        <label class="block text-gray-700 text-lg font-semibold mb-2" for="functional">Functional <span class="text-red-500">*</span></label>
+                                                        <input type="number" id="functional" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="functional" required oninput="updateNonFunctional()">
+                                                        <div class="w-full flex flex-col justify-end mt-2 sm:pl-3">
+                                                            <label class="block text-gray-700 text-sm font-semibold mb-2" for="non_functional">Non Functional:</label>
+                                                            <!-- <input type="number" id="non_functional" class="form-input mt-2 block sm:w-1/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-sm focus:outline-none focus:border-blue-500" name="non_functional" readonly> -->
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                                                <h3 class="text-2xl font-semibold text-blue-600 mb-4">Urban Primary Health Centre(U-PHC)</h3>
+                                            
+                                                <!-- Sanctioned, Functional, and Non-Functional under one div -->
+                                                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                                                    <!-- Sanc
+                                                     tioned and Functional in one line, responsive layout -->
+                                                    <div class="flex flex-wrap justify-between mb-4 space-x-4 sm:space-y-0">
+                                                        <!-- Sanctioned -->
+                                                        <div class="w-full sm:w-1/2 pr-0 sm:pr-3 mb-4 sm:mb-0">
+                                                            <label class="block text-gray-700 text-lg font-semibold mb-2" for="sanctioned">Sanctioned <span class="text-red-500">*</span></label>
+                                                            <input type="number" id="sanctioned" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="sanctioned" required oninput="updateNonFunctional()">
+                                                        </div>
+                                            
+                                                        <!-- Functional with gap on the right -->
+                                                        <div class="w-full sm:w-1/2 pl-0 sm:pl-3 mb-4 sm:mb-0">
+                                                            <label class="block text-gray-700 text-lg font-semibold mb-2" for="functional">Functional <span class="text-red-500">*</span></label>
+                                                            <input type="number" id="functional" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="functional" required oninput="updateNonFunctional()">
+                                                            <div class="w-full flex flex-col justify-end mt-2 sm:pl-3">
+                                                                <label class="block text-gray-700 text-sm font-semibold mb-2" for="non_functional">Non Functional:</label>
+                                                                <!-- <input type="number" id="non_functional" class="form-input mt-2 block sm:w-1/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-sm focus:outline-none focus:border-blue-500" name="non_functional" readonly> -->
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                                                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Urban Primary Health Centre-AAM (U-PHC-AAM)</h3>
+                                                
+                                                    <!-- Sanctioned, Functional, and Non-Functional under one div -->
+                                                    <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                                                        <!-- Sanc
+                                                         tioned and Functional in one line, responsive layout -->
+                                                        <div class="flex flex-wrap justify-between mb-4 space-x-4 sm:space-y-0">
+                                                            <!-- Sanctioned -->
+                                                            <div class="w-full sm:w-1/2 pr-0 sm:pr-3 mb-4 sm:mb-0">
+                                                                <label class="block text-gray-700 text-lg font-semibold mb-2" for="sanctioned">Sanctioned <span class="text-red-500">*</span></label>
+                                                                <input type="number" id="sanctioned" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="sanctioned" required oninput="updateNonFunctional()">
+                                                            </div>
+                                                
+                                                            <!-- Functional with gap on the right -->
+                                                            <div class="w-full sm:w-1/2 pl-0 sm:pl-3 mb-4 sm:mb-0">
+                                                                <label class="block text-gray-700 text-lg font-semibold mb-2" for="functional">Functional <span class="text-red-500">*</span></label>
+                                                                <input type="number" id="functional" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="functional" required oninput="updateNonFunctional()">
+                                                                <div class="w-full flex flex-col justify-end mt-2 sm:pl-3">
+                                                                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="non_functional">Non Functional:</label>
+                                                                    <!-- <input type="number" id="non_functional" class="form-input mt-2 block sm:w-1/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-sm focus:outline-none focus:border-blue-500" name="non_functional" readonly> -->
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                                                        <h3 class="text-2xl font-semibold text-blue-600 mb-4">Sub-Centre</h3>
+                                                    
+                                                        <!-- Sanctioned, Functional, and Non-Functional under one div -->
+                                                        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                                                            <!-- Sanc
+                                                             tioned and Functional in one line, responsive layout -->
+                                                            <div class="flex flex-wrap justify-between mb-4 space-x-4 sm:space-y-0">
+                                                                <!-- Sanctioned -->
+                                                                <div class="w-full sm:w-1/2 pr-0 sm:pr-3 mb-4 sm:mb-0">
+                                                                    <label class="block text-gray-700 text-lg font-semibold mb-2" for="sanctioned">Sanctioned <span class="text-red-500">*</span></label>
+                                                                    <input type="number" id="sanctioned" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="sanctioned" required oninput="updateNonFunctional()">
+                                                                </div>
+                                                    
+                                                                <!-- Functional with gap on the right -->
+                                                                <div class="w-full sm:w-1/2 pl-0 sm:pl-3 mb-4 sm:mb-0">
+                                                                    <label class="block text-gray-700 text-lg font-semibold mb-2" for="functional">Functional <span class="text-red-500">*</span></label>
+                                                                    <input type="number" id="functional" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="functional" required oninput="updateNonFunctional()">
+                                                                    <div class="w-full flex flex-col justify-end mt-2 sm:pl-3">
+                                                                        <label class="block text-gray-700 text-sm font-semibold mb-2" for="non_functional">Non Functional:</label>
+                                                                        <!-- <input type="number" id="non_functional" class="form-input mt-2 block sm:w-1/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-sm focus:outline-none focus:border-blue-500" name="non_functional" readonly> -->
+                                                                    </div>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                                                            <h3 class="text-2xl font-semibold text-blue-600 mb-4">AAM Sub-Centre</h3>
+                                                        
+                                                            <!-- Sanctioned, Functional, and Non-Functional under one div -->
+                                                            <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                                                                <!-- Sanc
+                                                                 tioned and Functional in one line, responsive layout -->
+                                                                <div class="flex flex-wrap justify-between mb-4 space-x-4 sm:space-y-0">
+                                                                    <!-- Sanctioned -->
+                                                                    <div class="w-full sm:w-1/2 pr-0 sm:pr-3 mb-4 sm:mb-0">
+                                                                        <label class="block text-gray-700 text-lg font-semibold mb-2" for="sanctioned">Sanctioned <span class="text-red-500">*</span></label>
+                                                                        <input type="number" id="sanctioned" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="sanctioned" required oninput="updateNonFunctional()">
+                                                                    </div>
+                                                        
+                                                                    <!-- Functional with gap on the right -->
+                                                                    <div class="w-full sm:w-1/2 pl-0 sm:pl-3 mb-4 sm:mb-0">
+                                                                        <label class="block text-gray-700 text-lg font-semibold mb-2" for="functional">Functional <span class="text-red-500">*</span></label>
+                                                                        <input type="number" id="functional" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="functional" required oninput="updateNonFunctional()">
+                                                                        <div class="w-full flex flex-col justify-end mt-2 sm:pl-3">
+                                                                            <label class="block text-gray-700 text-sm font-semibold mb-2" for="non_functional">Non Functional:</label>
+                                                                            <!-- <input type="number" id="non_functional" class="form-input mt-2 block sm:w-1/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-sm focus:outline-none focus:border-blue-500" name="non_functional" readonly> -->
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                                                                <h3 class="text-2xl font-semibold text-blue-600 mb-4">AAM-Urban Health Centre</h3>
+                                                            
+                                                                <!-- Sanctioned, Functional, and Non-Functional under one div -->
+                                                                <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                                                                    <!-- Sanc
+                                                                     tioned and Functional in one line, responsive layout -->
+                                                                    <div class="flex flex-wrap justify-between mb-4 space-x-4 sm:space-y-0">
+                                                                        <!-- Sanctioned -->
+                                                                        <div class="w-full sm:w-1/2 pr-0 sm:pr-3 mb-4 sm:mb-0">
+                                                                            <label class="block text-gray-700 text-lg font-semibold mb-2" for="sanctioned">Sanctioned <span class="text-red-500">*</span></label>
+                                                                            <input type="number" id="sanctioned" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="sanctioned" required oninput="updateNonFunctional()">
+                                                                        </div>
+                                                            
+                                                                        <!-- Functional with gap on the right -->
+                                                                        <div class="w-full sm:w-1/2 pl-0 sm:pl-3 mb-4 sm:mb-0">
+                                                                            <label class="block text-gray-700 text-lg font-semibold mb-2" for="functional">Functional <span class="text-red-500">*</span></label>
+                                                                            <input type="number" id="functional" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="functional" required oninput="updateNonFunctional()">
+                                                                            <div class="w-full flex flex-col justify-end mt-2 sm:pl-3">
+                                                                                <label class="block text-gray-700 text-sm font-semibold mb-2" for="non_functional">Non Functional:</label>
+                                                                                <!-- <input type="number" id="non_functional" class="form-input mt-2 block sm:w-1/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-sm focus:outline-none focus:border-blue-500" name="non_functional" readonly> -->
+                                                                            </div>
+                                                                        </div>
+                                                                        </div>
+                                                                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                                                                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">MCH Wings</h3>
+                                                                
+                                                                    <!-- Sanctioned, Functional, and Non-Functional under one div -->
+                                                                    <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                                                                        <!-- Sanc
+                                                                         tioned and Functional in one line, responsive layout -->
+                                                                        <div class="flex flex-wrap justify-between mb-4 space-x-4 sm:space-y-0">
+                                                                            <!-- Sanctioned -->
+                                                                            <div class="w-full sm:w-1/2 pr-0 sm:pr-3 mb-4 sm:mb-0">
+                                                                                <label class="block text-gray-700 text-lg font-semibold mb-2" for="sanctioned">Sanctioned <span class="text-red-500">*</span></label>
+                                                                                <input type="number" id="sanctioned" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="sanctioned" required oninput="updateNonFunctional()">
+                                                                            </div>
+                                                                
+                                                                            <!-- Functional with gap on the right -->
+                                                                            <div class="w-full sm:w-1/2 pl-0 sm:pl-3 mb-4 sm:mb-0">
+                                                                                <label class="block text-gray-700 text-lg font-semibold mb-2" for="functional">Functional <span class="text-red-500">*</span></label>
+                                                                                <input type="number" id="functional" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="functional" required oninput="updateNonFunctional()">
+                                                                                <div class="w-full flex flex-col justify-end mt-2 sm:pl-3">
+                                                                                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="non_functional">Non Functional:</label>
+                                                                                    <!-- <input type="number" id="non_functional" class="form-input mt-2 block sm:w-1/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-sm focus:outline-none focus:border-blue-500" name="non_functional" readonly> -->
+                                                                                </div>
+                                                                            </div>
+                                                                            </div>
+                                                                        </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">NBSUs</h3>
+                
+                    <!-- Sanctioned, Functional, and Non-Functional under one div -->
+                    <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                        <!-- Sanc
+                         tioned and Functional in one line, responsive layout -->
+                        <div class="flex flex-wrap justify-between mb-4 space-x-4 sm:space-y-0">
+                            <!-- Sanctioned -->
+                            <div class="w-full sm:w-1/2 pr-0 sm:pr-3 mb-4 sm:mb-0">
+                                <label class="block text-gray-700 text-lg font-semibold mb-2" for="sanctioned">Sanctioned <span class="text-red-500">*</span></label>
+                                <input type="number" id="sanctioned" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="sanctioned" required oninput="updateNonFunctional()">
+                            </div>
+                
+                            <!-- Functional with gap on the right -->
+                            <div class="w-full sm:w-1/2 pl-0 sm:pl-3 mb-4 sm:mb-0">
+                                <label class="block text-gray-700 text-lg font-semibold mb-2" for="functional">Functional <span class="text-red-500">*</span></label>
+                                <input type="number" id="functional" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="functional" required oninput="updateNonFunctional()">
+                                <div class="w-full flex flex-col justify-end mt-2 sm:pl-3">
+                                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="non_functional">Non Functional:</label>
+                                    <!-- <input type="number" id="non_functional" class="form-input mt-2 block sm:w-1/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-sm focus:outline-none focus:border-blue-500" name="non_functional" readonly> -->
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Nutritional Rehabilitation Centres/Malnutrition Treatment Centre</h3>
+                
+                    <!-- Sanctioned, Functional, and Non-Functional under one div -->
+                    <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                        <!-- Sanc
+                         tioned and Functional in one line, responsive layout -->
+                        <div class="flex flex-wrap justify-between mb-4 space-x-4 sm:space-y-0">
+                            <!-- Sanctioned -->
+                            <div class="w-full sm:w-1/2 pr-0 sm:pr-3 mb-4 sm:mb-0">
+                                <label class="block text-gray-700 text-lg font-semibold mb-2" for="sanctioned">Sanctioned <span class="text-red-500">*</span></label>
+                                <input type="number" id="sanctioned" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="sanctioned" required oninput="updateNonFunctional()">
+                            </div>
+                
+                            <!-- Functional with gap on the right -->
+                            <div class="w-full sm:w-1/2 pl-0 sm:pl-3 mb-4 sm:mb-0">
+                                <label class="block text-gray-700 text-lg font-semibold mb-2" for="functional">Functional <span class="text-red-500">*</span></label>
+                                <input type="number" id="functional" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="functional" required oninput="updateNonFunctional()">
+                                <div class="w-full flex flex-col justify-end mt-2 sm:pl-3">
+                                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="non_functional">Non Functional:</label>
+                                    <!-- <input type="number" id="non_functional" class="form-input mt-2 block sm:w-1/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-sm focus:outline-none focus:border-blue-500" name="non_functional" readonly> -->
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Adolescent Freindly Health Clinic (AFHCs)</h3>
+                
+                    <!-- Sanctioned, Functional, and Non-Functional under one div -->
+                    <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                        <!-- Sanc
+                         tioned and Functional in one line, responsive layout -->
+                        <div class="flex flex-wrap justify-between mb-4 space-x-4 sm:space-y-0">
+                            <!-- Sanctioned -->
+                            <div class="w-full sm:w-1/2 pr-0 sm:pr-3 mb-4 sm:mb-0">
+                                <label class="block text-gray-700 text-lg font-semibold mb-2" for="sanctioned">Sanctioned <span class="text-red-500">*</span></label>
+                                <input type="number" id="sanctioned" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="sanctioned" required oninput="updateNonFunctional()">
+                            </div>
+                
+                            <!-- Functional with gap on the right -->
+                            <div class="w-full sm:w-1/2 pl-0 sm:pl-3 mb-4 sm:mb-0">
+                                <label class="block text-gray-700 text-lg font-semibold mb-2" for="functional">Functional <span class="text-red-500">*</span></label>
+                                <input type="number" id="functional" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="functional" required oninput="updateNonFunctional()">
+                                <div class="w-full flex flex-col justify-end mt-2 sm:pl-3">
+                                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="non_functional">Non Functional:</label>
+                                    <!-- <input type="number" id="non_functional" class="form-input mt-2 block sm:w-1/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-sm focus:outline-none focus:border-blue-500" name="non_functional" readonly> -->
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Blood Storage Unit(BSU)/Blood Bank(BB)</h3>
+                
+                    <!-- Sanctioned, Functional, and Non-Functional under one div -->
+                    <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                        <!-- Sanc
+                         tioned and Functional in one line, responsive layout -->
+                        <div class="flex flex-wrap justify-between mb-4 space-x-4 sm:space-y-0">
+                            <!-- Sanctioned -->
+                            <div class="w-full sm:w-1/2 pr-0 sm:pr-3 mb-4 sm:mb-0">
+                                <label class="block text-gray-700 text-lg font-semibold mb-2" for="sanctioned">Sanctioned <span class="text-red-500">*</span></label>
+                                <input type="number" id="sanctioned" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="sanctioned" required oninput="updateNonFunctional()">
+                            </div>
+                
+                            <!-- Functional with gap on the right -->
+                            <div class="w-full sm:w-1/2 pl-0 sm:pl-3 mb-4 sm:mb-0">
+                                <label class="block text-gray-700 text-lg font-semibold mb-2" for="functional">Functional <span class="text-red-500">*</span></label>
+                                <input type="number" id="functional" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" name="functional" required oninput="updateNonFunctional()">
+                                <div class="w-full flex flex-col justify-end mt-2 sm:pl-3">
+                                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="non_functional">Non Functional:</label>
+                                    <!-- <input type="number" id="non_functional" class="form-input mt-2 block sm:w-1/3 p-2 border border-gray-300 rounded-md bg-gray-100 text-sm focus:outline-none focus:border-blue-500" name="non_functional" readonly> -->
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                    <label for="abha_id" class="block text-gray-700 text-lg font-semibold mb-2">Total Number of delivery points in the Block <span class="text-red-500">*</span></label>
+                    <input type="number" id="abha_id"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4" name="abha_id"
+                        required> 
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                    <label for="abha_id" class="block text-gray-700 text-lg font-semibold mb-2">Total Number of Ambulance at Public Health facility avaialable in the Block <span class="text-red-500">*</span></label>
+                    <input type="number" id="abha_id"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4" name="abha_id"
+                        required> 
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                    <label for="abha_id" class="block text-gray-700 text-lg font-semibold mb-2">Total Number of beds available at block public health facilities<span class="text-red-500">*</span></label>
+                    <input type="number" id="abha_id"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4" name="abha_id"
+                        required> 
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+                    <label for="abha_id" class="block text-gray-700 text-lg font-semibold mb-2">Total Number of cold chain points in the Block <span class="text-red-500">*</span></label>
+                    <input type="number" id="abha_id"
+                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4" name="abha_id"
+                        required> 
+                </div>
+                <div class="flex justify-between mb-6">
+                    <!-- Back Button on the left -->
+                    <button type="button" class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300" onclick="goBackToSection3()">Back</button>
+            
+                    <!-- Save & Next Button on the right -->
+                    <button type="button" id="saveNextButtonSection4" class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300" onclick="saveAndNext(4)">Save & Next</button>
+                </div>
+            </div>
+            
+            </div>
+        </form>
+    </div>
+
+    <script src="js/main.js"></script>
+    <!-- <script src="js/validations.js"></script> -->
+
+</body>
+
+</html>
