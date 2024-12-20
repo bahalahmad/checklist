@@ -3,131 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NQAS Certification Form</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Number Input Validation</title>
+    <style>
+        .border-red-500 {
+            border-color: #f56565;
+        }
+        .text-red-500 {
+            color: #f56565;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 p-6">
-    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-        <label class="block text-gray-700 text-lg font-semibold" for="nqas_certification">Has the block identified the facilities for NQAS certification? <span class="text-red-500">*</span></label>
-        <div class="mt-2">
-            <label class="inline-flex items-center">
-                <input type="radio" class="form-radio text-blue-600" id="nqas_certification_yes" name="nqas_certification" value="yes" required onclick="toggleNQASInputs(true)">
-                <span class="ml-2 text-gray-600">Yes</span>
-            </label>
-            <label class="inline-flex items-center ml-6">
-                <input type="radio" class="form-radio text-blue-600" id="nqas_certification_no" name="nqas_certification" value="no" onclick="toggleNQASInputs(false)">
-                <span class="ml-2 text-gray-600">No</span>
-            </label>
+<body>
+    <div id="section1" class="section bg-white p-6 rounded shadow-md mb-4">
+        <h2 class="text-3xl font-bold mb-6 text-black-600">Number Input Validation</h2>
+        <p class="text-sm text-red-500 mb-4">* indicates a required field</p>
+
+        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+            <label class="block text-gray-700 text-lg font-semibold" for="num1">Number 1 (0-20) *</label>
+            <input type="number" id="num1" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" required>
+            <p id="num1Error" class="text-red-500 text-sm mt-1"></p>
+        </div>
+
+        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+            <label class="block text-gray-700 text-lg font-semibold" for="num2">Number 2 (0-30) *</label>
+            <input type="number" id="num2" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" required>
+            <p id="num2Error" class="text-red-500 text-sm mt-1"></p>
+        </div>
+
+        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+            <label class="block text-gray-700 text-lg font-semibold" for="sum">Sum *</label>
+            <input type="number" id="sum" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" readonly>
+        </div>
+
+        <div class="flex justify-between mb-6">
+            <button type="button" id="saveNextButton" class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300">Save & Next</button>
         </div>
     </div>
 
-    <div id="nqas-inputs" class="bg-white p-6 rounded-lg shadow-md mb-6" style="display: none;">
-        <!-- No. of PHC Identified for NQAS certification -->
-        <div class="mb-4">
-            <label class="block text-gray-700 text-lg font-semibold" for="nqas_phc">No. of PHC Identified for NQAS certification</label>
-            <input type="number" id="nqas_phc" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" oninput="updateNQASTotal()">
-        </div>
-
-        <!-- No. of CHC Identified for NQAS certification -->
-        <div class="mb-4">
-            <label class="block text-gray-700 text-lg font-semibold" for="nqas_chc">No. of CHC Identified for NQAS certification</label>
-            <input type="number" id="nqas_chc" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" oninput="updateNQASTotal()">
-        </div>
-
-        <!-- No. of SC Identified for NQAS certification -->
-        <div class="mb-4">
-            <label class="block text-gray-700 text-lg font-semibold" for="nqas_sc">No. of SC Identified for NQAS certification</label>
-            <input type="number" id="nqas_sc" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" oninput="updateNQASTotal()">
-        </div>
-
-        <!-- Total Number of facilities identified for NQAS certification -->
-        <div class="mb-4">
-            <label class="block text-gray-700 text-lg font-semibold" for="nqas_total">Total Number of facilities identified for NQAS certification</label>
-            <input type="number" id="nqas_total" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md bg-gray-100" readonly>
-        </div>
-    </div>
-
-    <div class="flex justify-between mb-6">
-        <!-- Back Button on the left -->
-        <button type="button" class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300" onclick="goBackToSection3()">Back</button>
-        <!-- Save & Next Button on the right -->
-        <button type="button" id="saveNextButtonSection4" class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300" onclick="validateAndSave()">Save & Next</button>
+    <div id="section2" class="section bg-white p-6 rounded shadow-md mb-4" style="display: none;">
+        <!-- Next section content -->
     </div>
 
     <script>
-        function toggleNQASInputs(show) {
-            const nqasInputs = document.getElementById('nqasDetails');
-            nqasInputs.style.display = show ? 'block' : 'none';
-            if (!show) {
-                document.getElementById('num_phc_for_nqas').value = '';
-                document.getElementById('num_chc_for_nqas').value = '';
-                document.getElementById('num_sc_for_nqas').value = '';
-                document.getElementById('num_facilities_for_nqas').value = '';
-            }
-        }
+        document.getElementById("saveNextButton").addEventListener("click", function (event) {
+            event.preventDefault();
 
-        function updateNQASTotal() {
-            const phcCount = parseFloat(document.getElementById('num_phc_for_nqas').value) || 0;
-            const chcCount = parseFloat(document.getElementById('num_chc_for_nqas').value) || 0;
-            const scCount = parseFloat(document.getElementById('num_sc_for_nqas').value) || 0;
-            const total = phcCount + chcCount + scCount;
-            document.getElementById('num_facilities_for_nqas').value = total;
-        }
-
-        function validateAndSave() {
             let isValid = true;
-            const hasBlockIdentifiedNQAS = document.getElementById("nqas_certification_yes").checked; 
-            const phcCount = document.getElementById("nqas_phc"); 
-            const chcCount = document.getElementById("nqas_chc");
-            const scCount = document.getElementById("nqas_sc");
-            const totalFacilities = document.getElementById("nqas_total"); 
+            
+            const num1 = document.getElementById("num1");
+            const num2 = document.getElementById("num2");
+            const sum = document.getElementById("sum");
 
-            if (hasBlockIdentifiedNQAS) {
-                // Validate PHC count (0-50)
-                if (phcCount.value < 0 || phcCount.value > 50 || isNaN(phcCount.value)) {
-                    isValid = false;
-                    phcCount.classList.add("border-red-500");
-                } else {
-                    phcCount.classList.remove("border-red-500");
-                }
+            // Error message elements
+            const num1Error = document.getElementById("num1Error");
+            const num2Error = document.getElementById("num2Error");
 
-                // Validate CHC count (0-25)
-                if (chcCount.value < 0 || chcCount.value > 25 || isNaN(chcCount.value)) {
-                    isValid = false;
-                    chcCount.classList.add("border-red-500");
-                } else {
-                    chcCount.classList.remove("border-red-500");
-                }
+            // Reset error messages
+            num1Error.textContent = "";
+            num2Error.textContent = "";
 
-                // Validate SC count (0-100)
-                if (scCount.value < 0 || scCount.value > 100 || isNaN(scCount.value)) {
-                    isValid = false;
-                    scCount.classList.add("border-red-500");
-                } else {
-                    scCount.classList.remove("border-red-500");
-                }
-
-                // Auto-calculate total facilities (sum of PHC, CHC, and SC)
-                const total = parseInt(phcCount.value) + parseInt(chcCount.value) + parseInt(scCount.value);
-                totalFacilities.value = total;
-
-                // Validate that total facilities value is correctly calculated
-                if (totalFacilities.value !== total.toString()) {
-                    isValid = false;
-                    totalFacilities.classList.add("border-red-500");
-                } else {
-                    totalFacilities.classList.remove("border-red-500");
-                }
+            // Validate num1 (0-20)
+            if (num1.value < 0 || num1.value > 20 || isNaN(num1.value)) {
+                isValid = false;
+                num1.classList.add("border-red-500");
+                num1Error.textContent = "Number should range from 0-20.";
+            } else {
+                num1.classList.remove("border-red-500");
             }
 
+            // Validate num2 (0-30)
+            if (num2.value < 0 || num2.value > 30 || isNaN(num2.value)) {
+                isValid = false;
+                num2.classList.add("border-red-500");
+                num2Error.textContent = "Number should range from 0-30.";
+            } else {
+                num2.classList.remove("border-red-500");
+            }
+
+            // Auto-calculate sum
+            const total = (parseInt(num1.value) || 0) + (parseInt(num2.value) || 0);
+            sum.value = total;
+
+            // Proceed if valid
             if (isValid) {
-                // Proceed to the next section or save the data
-                alert("Data is valid and ready to be saved!");
-                // Add code to save data and move to the next section
+                document.getElementById("section1").style.display = "none";
+                document.getElementById("section2").style.display = "block"; // Replace section2 with your actual next section
             } else {
                 alert("Please fill out all required fields correctly.");
             }
-        }
+        });
     </script>
 </body>
 </html>

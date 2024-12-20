@@ -483,3 +483,130 @@ document.getElementById("saveNextButtonSection2").addEventListener("click", func
 //         alert("Please fill out all required fields correctly.");
 //     }
 // });
+
+
+
+// validation of all but its not dynamic 
+document.getElementById("saveNextButtonSection1").addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent form submission
+    
+    let isValid = true; // Track the validity of the form
+
+    // General Information Validation
+    const district = document.getElementById("district");
+    const block = document.getElementById("block");
+    if (!district.value) {
+        isValid = false;
+        district.classList.add("border-red-500");
+    } else {
+        district.classList.remove("border-red-500");
+    }
+
+    if (!block.value) {
+        isValid = false;
+        block.classList.add("border-red-500");
+    } else {
+        block.classList.remove("border-red-500");
+    }
+
+    // Validate Name and Contact fields in all sections
+    const validateNameAndContact = (nameId, contactId, nameErrorId, contactErrorId) => {
+        const name = document.getElementById(nameId);
+        const contact = document.getElementById(contactId);
+        let validName = true, validContact = true;
+
+        // Name Validation
+        if (!name.value || name.value.length > 50) {
+            validName = false;
+            name.classList.add("border-red-500");
+            document.getElementById(nameErrorId).textContent = "Name is required and should not exceed 50 characters.";
+        } else {
+            name.classList.remove("border-red-500");
+            document.getElementById(nameErrorId).textContent = "";
+        }
+
+        // Contact Validation
+        if (!contact.value || !/^[6-9]\d{9}$/.test(contact.value)) {
+            validContact = false;
+            contact.classList.add("border-red-500");
+            document.getElementById(contactErrorId).textContent = "Contact number should start with 6-9 and have 10 digits.";
+        } else {
+            contact.classList.remove("border-red-500");
+            document.getElementById(contactErrorId).textContent = "";
+        }
+
+        return validName && validContact;
+    };
+
+    // Block Development Officer Section Validation
+    const bdoValid = validateNameAndContact("bdo_name", "bdo_contact", "bdo_name_error", "bdo_contact_error");
+
+    // Sub District Magistrate Section Validation
+    const sdmValid = validateNameAndContact("sdm_name", "sdm_contact", "sdm_name_error", "sdm_contact_error");
+
+    // Block Medical Officer Section Validation
+    const bmoValid = validateNameAndContact("bmo_name", "bmo_contact", "bmo_name_error", "bmo_contact_error");
+
+    // Demographic Details Section Validation
+    const areaType = document.querySelector('input[name="area_type"]:checked');
+    const numVillages = document.getElementById("num_villages");
+    const healthFacilities = document.getElementById("health_facilities");
+    const totalPhc = document.getElementById("total_phc");
+    const totalChc = document.getElementById("total_chc");
+    const totalSubCentre = document.getElementById("total_sub_centre");
+    const aanganwadiCentre = document.getElementById("aanganwadi_centre");
+    const populationCovered = document.getElementById("population_covered");
+    const eligibleCouple = document.getElementById("eligible_couple");
+    const pregnantWomen = document.getElementById("pregnant_women");
+    const liveBirth = document.getElementById("live_birth");
+    const children01 = document.getElementById("children_0_1");
+    const populationAbove30 = document.getElementById("population_above_30");
+    const pmjayCard = document.getElementById("pmjay_card");
+    const abhaId = document.getElementById("abha_id");
+
+    if (!areaType) {
+        isValid = false;
+        document.querySelector('input[name="area_type"]').parentElement.classList.add("text-red-500");
+    } else {
+        document.querySelector('input[name="area_type"]').parentElement.classList.remove("text-red-500");
+        document.getElementById(errorId).textContent = "";
+    }
+
+    // Number validations for demographic details
+    const validateNumericField = (field, min, max, errorId) => {
+        if (!field.value || isNaN(field.value) || field.value < min || field.value > max) {
+            isValid = false;
+            field.classList.add("border-red-500");
+            document.getElementById(errorId).textContent = `Value should be between ${min} and ${max}.`;
+        } else {
+            field.classList.remove("border-red-500");
+            document.getElementById(errorId).textContent = "";
+        }
+    };
+
+    validateNumericField(numVillages, 10, 500, "num_villages_error");
+    validateNumericField(totalPhc, 0, 50, "total_phc_error");
+    validateNumericField(totalChc, 0, 20, "total_chc_error");
+    validateNumericField(totalSubCentre, 0, 100, "total_sub_centre_error");
+    validateNumericField(aanganwadiCentre, 50000, 100000, "aanganwadi_centre_error");
+    validateNumericField(populationCovered, 50000, 100000, "population_covered_error");
+    validateNumericField(eligibleCouple, 0, 100000, "eligible_couple_error");
+    validateNumericField(pregnantWomen, 0, 99999, "pregnant_women_error");
+    validateNumericField(liveBirth, 0, 99999, "live_birth_error");
+    validateNumericField(children01, 0, 99999, "children_0_1_error");
+    validateNumericField(populationAbove30, 1, 10000, "population_above_30_error");
+    validateNumericField(pmjayCard, 0, 99999, "pmjay_card_error");
+    validateNumericField(abhaId, 0, 99999, "abha_id_error");
+
+    // Total health facilities auto calculation
+    const totalHealthFacilities = (parseInt(totalPhc.value) || 0) + (parseInt(totalChc.value) || 0) + (parseInt(totalSubCentre.value) || 0);
+    healthFacilities.value = totalHealthFacilities;
+
+    if (bdoValid && sdmValid && bmoValid && isValid) {
+        // Move to the next section if valid
+        document.getElementById("section1").style.display = "none";
+        document.getElementById("section2").style.display = "block"; // Replace section2 with your actual section
+    } else {
+        alert("Please fill out all required fields correctly.");
+    }
+});

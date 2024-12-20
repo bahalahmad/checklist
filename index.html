@@ -11,98 +11,95 @@
 <body class="bg-gray-100">
     <div class="container mx-auto p-4">
         <form id="dataForm">
-
+    
             <!-- General Information Section -->
             <div id="section1" class="section bg-white p-6 rounded shadow-md mb-4" style="display: block;">
                 <h2 class="text-3xl font-bold mb-6 text-black-600">General Information</h2>
                 <p class="text-sm text-red-500 mb-4">* indicates a required question</p>
-
+    
                 <!-- District & Block Dropdown -->
                 <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
                     <label for="district" class="block text-gray-700 text-lg font-semibold">District <span
                             class="text-red-500">*</span></label>
                     <select id="district" class="form-select mt-2 block w-full p-3 border border-gray-300 rounded-md"
-                        name="district" required>
+                            name="district" required>
                         <option value="">Select District</option>
                         <option value="district1">District 1</option>
                         <option value="district2">District 2</option>
                         <option value="district3">District 3</option>
                     </select>
                 </div>
-
+    
                 <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
                     <label for="block" class="block text-gray-700 text-lg font-semibold">Block <span
                             class="text-red-500">*</span></label>
                     <select id="block" class="form-select mt-2 block w-full p-3 border border-gray-300 rounded-md"
-                        name="block" required>
+                            name="block" required>
                         <option value="">Select Block</option>
                         <option value="block1">Block 1</option>
                         <option value="block2">Block 2</option>
                         <option value="block3">Block 3</option>
                     </select>
                 </div>
-
+    
                 <!-- Sub-section: Block Development Officer -->
                 <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
                     <h3 class="text-2xl font-semibold text-blue-600 mb-4">Block Development Officer</h3>
                     <label for="bdo_name" class="block text-gray-700 text-lg font-semibold">Name </label>
-                    <input type="text" id="bdo_name"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="bdo_name">
-
-                    <label for="bdo_contact" class="block text-gray-700 text-lg font-semibold mt-4">Contact Number
-                    </label>
-                    <input type="tel" id="bdo_contact"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="bdo_contact">
-
+                    <input type="text" id="bdo_name" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="bdo_name">
+                    <p id="bdo_name_error" ></p>
+                
+                    <label for="bdo_contact" class="block text-gray-700 text-lg font-semibold mt-4">Contact Number</label>
+                    <input type="tel" id="bdo_contact" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="bdo_contact">
+                    <p id="bdo_contact_error" >
+                
                     <label for="bdo_email" class="block text-gray-700 text-lg font-semibold mt-4">Email ID</label>
-                    <input type="email" id="bdo_email"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="bdo_email">
+                    <input type="email" id="bdo_email" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="bdo_email">
+                     <p id="bdo_email_error" ></p>
                 </div>
-
+                
                 <!-- Sub-section: Sub District Magistrate -->
                 <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Sub District Magvistrate</h3>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Sub District Magistrate</h3>
                     <label for="sdm_name" class="block text-gray-700 text-lg font-semibold">Name </label>
-                    <input type="text" id="sdm_name"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="sdm_name">
-
-                    <label for="sdm_contact" class="block text-gray-700 text-lg font-semibold mt-4">Contact
-                        Number</label>
-                    <input type="tel" id="sdm_contact"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="sdm_contact">
-
+                    <input type="text" id="sdm_name" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="sdm_name">
+                    <p id="sdm_name_error" ></p>
+                
+                    <label for="sdm_contact" class="block text-gray-700 text-lg font-semibold mt-4">Contact Number</label>
+                    <input type="tel" id="sdm_contact" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="sdm_contact">
+                    <p id="sdm_contact_error" ></p>
+                
                     <label for="sdm_email" class="block text-gray-700 text-lg font-semibold mt-4">Email ID</label>
-                    <input type="email" id="sdm_email"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="sdm_email">
+                    <input type="email" id="sdm_email" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="sdm_email">
+                    <p id="sdm_email_error" ></p>
                 </div>
-
+                
                 <!-- Sub-section: Block Medical Officer -->
                 <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
                     <h3 class="text-2xl font-semibold text-blue-600 mb-4">Block Medical Officer</h3>
                     <label for="bmo_name" class="block text-gray-700 text-lg font-semibold">Name </label>
-                    <input type="text" id="bmo_name"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="bmo_name">
-
-                    <label for="bmo_contact" class="block text-gray-700 text-lg font-semibold mt-4">Contact
-                        Number</label>
-                    <input type="tel" id="bmo_contact"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="bmo_contact">
-
+                    <input type="text" id="bmo_name" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="bmo_name">
+                    <p id="bmo_name_error" ></p>
+                
+                    <label for="bmo_contact" class="block text-gray-700 text-lg font-semibold mt-4">Contact Number</label>
+                    <input type="tel" id="bmo_contact" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="bmo_contact">
+                    <p id="bmo_contact_error" ></p>
+                
                     <label for="bmo_email" class="block text-gray-700 text-lg font-semibold mt-4">Email ID</label>
-                    <input type="email" id="bmo_email"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="bmo_email">
+                    <input type="email" id="bmo_email" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="bmo_email">
+                    <p id="bmo_email_error" ></p>
                 </div>
-
+    
                 <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
                     <h3 class="text-2xl font-semibold text-blue-600 mb-6">Demographic Details</h3>
-
+    
                     <!-- Area Type -->
                     <label class="block text-gray-700 text-lg font-semibold mb-2">Area Type <span
                             class="text-red-500">*</span></label>
                     <div class="mt-2 mb-6">
                         <label class="inline-flex items-center mr-6">
                             <input type="radio" class="form-radio text-blue-600" name="area_type" value="urban"
-                                required>
+                                   required>
                             <span class="ml-2 text-gray-600">Urban</span>
                         </label>
                         <label class="inline-flex items-center">
@@ -110,96 +107,109 @@
                             <span class="ml-2 text-gray-600">Rural</span>
                         </label>
                     </div>
-
+    
                     <!-- Number Inputs for Health Facilities -->
-                    <label for="num_villages" class="block text-gray-700 text-lg font-semibold mb-2">Number of
+                    <label for="num_villages" class="block text-gray-700 text-lg font-semibold mt-4">Number of
                         Villages/Gram Panchayats/Wards in the Block <span class="text-red-500">*</span></label>
                     <input type="number" id="num_villages"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
-                        name="num_villages" required>
-
-                    <label for="health_facilities" class="block text-gray-700 text-lg font-semibold mb-2">Total Health
+                           class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                           name="num_villages" required>
+                    <p id="num_villages_error" ></p>
+    
+                    <label for="health_facilities" class="block text-gray-700 text-lg font-semibold mt-2">Total Health
                         Facilities in the Block <span class="text-red-500">*</span></label>
                     <input type="number" id="health_facilities"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
-                        name="health_facilities" required>
-
-                    <label for="total_phc" class="block text-gray-700 text-lg font-semibold mb-2">Total PHC <span
+                           class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                           name="health_facilities" required>
+                    <p id="health_facilities_error" ></p>
+    
+                    <label for="total_phc" class="block text-gray-700 text-lg font-semibold mt-4">Total PHC <span
                             class="text-red-500">*</span></label>
                     <input type="number" id="total_phc"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4" name="total_phc"
-                        required>
-
-                    <label for="total_chc" class="block text-gray-700 text-lg font-semibold mb-2">Total CHC <span
+                           class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="total_phc"
+                           required>
+                    <p id="total_phc_error" ></p>
+    
+                    <label for="total_chc" class="block text-gray-700 text-lg font-semibold mt-4">Total CHC <span
                             class="text-red-500">*</span></label>
                     <input type="number" id="total_chc"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4" name="total_chc"
-                        required>
-
-                    <label for="total_sub_centre" class="block text-gray-700 text-lg font-semibold mb-2">Total
+                           class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="total_chc"
+                           required>
+                    <p id="total_chc_error" ></p>
+    
+                    <label for="total_sub_centre" class="block text-gray-700 text-lg font-semibold mt-4">Total
                         Sub-centre <span class="text-red-500">*</span></label>
                     <input type="number" id="total_sub_centre"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
-                        name="total_sub_centre" required>
-
-                    <label for="aanganwadi_centre" class="block text-gray-700 text-lg font-semibold mb-2">No of
+                           class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                           name="total_sub_centre" required>
+                    <p id="total_sub_centre_error" ></p>
+    
+                    <label for="aanganwadi_centre" class="block text-gray-700 text-lg font-semibold mt-4">No of
                         Aanganwadi centre in the block <span class="text-red-500">*</span></label>
                     <input type="number" id="aanganwadi_centre"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
-                        name="aanganwadi_centre" required>
-                    <label for="population_covered" class="block text-gray-700 text-lg font-semibold mb-2">Population
+                           class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                           name="aanganwadi_centre" required>
+                    <p id="aanganwadi_centre_error" ></p>
+    
+                    <label for="population_covered" class="block text-gray-700 text-lg font-semibold mt-4">Population
                         covered by the block <span class="text-red-500">*</span></label>
                     <input type="number" id="population_covered"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
-                        name="population_covered" required>
-
-                    <label for="eligible_couple" class="block text-gray-700 text-lg font-semibold mb-2">Total Eligible
+                           class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                           name="population_covered" required>
+                    <p id="population_covered_error" ></p>
+    
+                    <label for="eligible_couple" class="block text-gray-700 text-lg font-semibold mt-4">Total Eligible
                         couple <span class="text-red-500">*</span></label>
                     <input type="number" id="eligible_couple"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
-                        name="eligible_couple" required>
-
-                    <label for="pregnant_women" class="block text-gray-700 text-lg font-semibold mb-2">Total Pregnant
+                           class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                           name="eligible_couple" required>
+                    <p id="eligible_couple_error" ></p>
+    
+                    <label for="pregnant_women" class="block text-gray-700 text-lg font-semibold mt-4">Total Pregnant
                         Women <span class="text-red-500">*</span></label>
                     <input type="number" id="pregnant_women"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
-                        name="pregnant_women" required>
-
-                    <label for="live_birth" class="block text-gray-700 text-lg font-semibold mb-2">Total live birth
+                           class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                           name="pregnant_women" required>
+                    <p id="pregnant_women_error"></p>
+    
+                    <label for="live_birth" class="block text-gray-700 text-lg font-semibold mt-4">Total live birth
                         <span class="text-red-500">*</span></label>
                     <input type="number" id="live_birth"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
-                        name="live_birth" required>
-
-                    <label for="children_0_1" class="block text-gray-700 text-lg font-semibold mb-2">Estimated children
+                           class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                           name="live_birth" required>
+                    <p id="live_birth_error"></p>
+    
+                    <label for="children_0_1" class="block text-gray-700 text-lg font-semibold mt-4">Estimated children
                         0-1 years of age <span class="text-red-500">*</span></label>
                     <input type="number" id="children_0_1"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
-                        name="children_0_1" required>
-
-                    <label for="population_above_30" class="block text-gray-700 text-lg font-semibold mb-2">Total
+                           class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                           name="children_0_1" required>
+                    <p id="children_0_1_error" ></p>
+    
+                    <label for="population_above_30" class="block text-gray-700 text-lg font-semibold mt-4">Total
                         population above the age of 30 years <span class="text-red-500">*</span></label>
-                    <input type="number" id="population_above_30"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4"
-                        name="population_above_30" required>
-
+                    <input type="number" id="population_above_30"   
+                           class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                           name="population_above_30" required>
+                    <p id="population_above_30_error" ></p>
+    
                     <!-- PMJAY Card Issued -->
-                    <label for="abha_id" class="block text-gray-700 text-lg font-semibold mb-2">PMJAY Card Issued (Till
+                    <label for="abha_id" class="block text-gray-700 text-lg font-semibold mt-4">PMJAY Card Issued (Till
                         Date)
                         <span class="text-red-500">*</span></label>
                     <input type="number" id="pmjay_card"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4" name="abha_id"
-                        required>
+                           class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" name="abha_id"
+                           required>
+                    <p id="pmjay_card_error" ></p>
 
                     <!-- Number of ABHA ID -->
-                    <label for="abha_id" class="block text-gray-700 text-lg font-semibold mb-2">Number of ABHA ID card
+                    <label for="abha_id" class="block text-gray-700 text-lg font-semibold mt-4">Number of ABHA ID card
                         generated (till date) <span class="text-red-500">*</span></label>
                     <input type="number" id="abha_id"
-                        class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md mb-4" name="abha_id"
-                        required>   
+                           class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md " name="abha_id"
+                           required>   
+                    <p id="abha_id_error" ></p>
                 </div>
-
-
 
                 <!-- Save & Next Button -->
                 <div class="flex justify-end mt-6">
