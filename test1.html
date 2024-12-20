@@ -1,56 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>Line Input with Label</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NQAS Certification Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="flex items-center justify-center min-h-screen bg-gray-100">
-  <div class="w-full max-w-sm">
-    <!-- User ID Field -->
-    <div class="relative mb-6">
-      <input
-        type="text"
-        id="user-id"
-        placeholder=" "
-        class="peer w-full border-b-2 border-red-500 bg-transparent px-8 py-2 text-gray-700 focus:outline-none focus:ring-0 focus:border-red-500"
-      />
-      <label
-        for="user-id"
-        class="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400 text-sm transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs peer-focus:text-red-500"
-      >
-        User ID
-      </label>
-      <span class="absolute left-0 top-1/2 -translate-y-1/2 pl-2 text-gray-400">
-        <!-- User Icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.94 13.94 0 0112 15.9c2.168 0 4.31.572 6.18 1.631M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 4c0 3.866-3.582 7-8 7S5 14.866 5 11c0-.637.083-1.25.234-1.83M5.121 17.804C4.08 16.526 3.5 14.834 3.5 13c0-4.418 4.477-8 10-8s10 3.582 10 8c0 1.833-.58 3.526-1.621 4.804" />
-        </svg>
-      </span>
+<body class="bg-gray-100 p-6">
+    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+        <label class="block text-gray-700 text-lg font-semibold" for="nqas_certification">Has the block identified the facilities for NQAS certification? <span class="text-red-500">*</span></label>
+        <div class="mt-2">
+            <label class="inline-flex items-center">
+                <input type="radio" class="form-radio text-blue-600" id="nqas_certification_yes" name="nqas_certification" value="yes" required onclick="toggleNQASInputs(true)">
+                <span class="ml-2 text-gray-600">Yes</span>
+            </label>
+            <label class="inline-flex items-center ml-6">
+                <input type="radio" class="form-radio text-blue-600" id="nqas_certification_no" name="nqas_certification" value="no" onclick="toggleNQASInputs(false)">
+                <span class="ml-2 text-gray-600">No</span>
+            </label>
+        </div>
     </div>
 
-    <!-- Password Field -->
-    <div class="relative">
-      <input
-        type="password"
-        id="password"
-        placeholder=" "
-        class="peer w-full border-b-2 border-red-500 bg-transparent px-8 py-2 text-gray-700 focus:outline-none focus:ring-0 focus:border-red-500"
-      />
-      <label
-        for="password"
-        class="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400 text-sm transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs peer-focus:text-red-500"
-      >
-        Password
-      </label>
-      <span class="absolute left-0 top-1/2 -translate-y-1/2 pl-2 text-gray-400">
-        <!-- Lock Icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15a2 2 0 100-4 2 2 0 000 4zM8 11V8a4 4 0 018 0v3M5 11a7 7 0 0114 0v4a3 3 0 11-6 0H8a3 3 0 11-6 0v-4" />
-        </svg>
-      </span>
+    <div id="nqas-inputs" class="bg-white p-6 rounded-lg shadow-md mb-6" style="display: none;">
+        <!-- No. of PHC Identified for NQAS certification -->
+        <div class="mb-4">
+            <label class="block text-gray-700 text-lg font-semibold" for="nqas_phc">No. of PHC Identified for NQAS certification</label>
+            <input type="number" id="nqas_phc" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" oninput="updateNQASTotal()">
+        </div>
+
+        <!-- No. of CHC Identified for NQAS certification -->
+        <div class="mb-4">
+            <label class="block text-gray-700 text-lg font-semibold" for="nqas_chc">No. of CHC Identified for NQAS certification</label>
+            <input type="number" id="nqas_chc" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" oninput="updateNQASTotal()">
+        </div>
+
+        <!-- No. of SC Identified for NQAS certification -->
+        <div class="mb-4">
+            <label class="block text-gray-700 text-lg font-semibold" for="nqas_sc">No. of SC Identified for NQAS certification</label>
+            <input type="number" id="nqas_sc" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md" oninput="updateNQASTotal()">
+        </div>
+
+        <!-- Total Number of facilities identified for NQAS certification -->
+        <div class="mb-4">
+            <label class="block text-gray-700 text-lg font-semibold" for="nqas_total">Total Number of facilities identified for NQAS certification</label>
+            <input type="number" id="nqas_total" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md bg-gray-100" readonly>
+        </div>
     </div>
-  </div>
+
+    <div class="flex justify-between mb-6">
+        <!-- Back Button on the left -->
+        <button type="button" class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300" onclick="goBackToSection3()">Back</button>
+        <!-- Save & Next Button on the right -->
+        <button type="button" id="saveNextButtonSection4" class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300" onclick="validateAndSave()">Save & Next</button>
+    </div>
+
+    <script>
+        function toggleNQASInputs(show) {
+            const nqasInputs = document.getElementById('nqasDetails');
+            nqasInputs.style.display = show ? 'block' : 'none';
+            if (!show) {
+                document.getElementById('num_phc_for_nqas').value = '';
+                document.getElementById('num_chc_for_nqas').value = '';
+                document.getElementById('num_sc_for_nqas').value = '';
+                document.getElementById('num_facilities_for_nqas').value = '';
+            }
+        }
+
+        function updateNQASTotal() {
+            const phcCount = parseFloat(document.getElementById('num_phc_for_nqas').value) || 0;
+            const chcCount = parseFloat(document.getElementById('num_chc_for_nqas').value) || 0;
+            const scCount = parseFloat(document.getElementById('num_sc_for_nqas').value) || 0;
+            const total = phcCount + chcCount + scCount;
+            document.getElementById('num_facilities_for_nqas').value = total;
+        }
+
+        function validateAndSave() {
+            let isValid = true;
+            const hasBlockIdentifiedNQAS = document.getElementById("nqas_certification_yes").checked; 
+            const phcCount = document.getElementById("nqas_phc"); 
+            const chcCount = document.getElementById("nqas_chc");
+            const scCount = document.getElementById("nqas_sc");
+            const totalFacilities = document.getElementById("nqas_total"); 
+
+            if (hasBlockIdentifiedNQAS) {
+                // Validate PHC count (0-50)
+                if (phcCount.value < 0 || phcCount.value > 50 || isNaN(phcCount.value)) {
+                    isValid = false;
+                    phcCount.classList.add("border-red-500");
+                } else {
+                    phcCount.classList.remove("border-red-500");
+                }
+
+                // Validate CHC count (0-25)
+                if (chcCount.value < 0 || chcCount.value > 25 || isNaN(chcCount.value)) {
+                    isValid = false;
+                    chcCount.classList.add("border-red-500");
+                } else {
+                    chcCount.classList.remove("border-red-500");
+                }
+
+                // Validate SC count (0-100)
+                if (scCount.value < 0 || scCount.value > 100 || isNaN(scCount.value)) {
+                    isValid = false;
+                    scCount.classList.add("border-red-500");
+                } else {
+                    scCount.classList.remove("border-red-500");
+                }
+
+                // Auto-calculate total facilities (sum of PHC, CHC, and SC)
+                const total = parseInt(phcCount.value) + parseInt(chcCount.value) + parseInt(scCount.value);
+                totalFacilities.value = total;
+
+                // Validate that total facilities value is correctly calculated
+                if (totalFacilities.value !== total.toString()) {
+                    isValid = false;
+                    totalFacilities.classList.add("border-red-500");
+                } else {
+                    totalFacilities.classList.remove("border-red-500");
+                }
+            }
+
+            if (isValid) {
+                // Proceed to the next section or save the data
+                alert("Data is valid and ready to be saved!");
+                // Add code to save data and move to the next section
+            } else {
+                alert("Please fill out all required fields correctly.");
+            }
+        }
+    </script>
 </body>
 </html>

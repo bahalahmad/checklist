@@ -246,3 +246,240 @@ function saveAndNext(sectionIndex) {
 </body>
 
 </html> -->
+
+document.getElementById("saveNextButtonSection2").addEventListener("click", function (event) {
+    event.preventDefault();
+
+    let isValid = true;
+    
+    // Section 1 - Radio Button Validation
+    function validateRadioButtons() {
+        const radioGroups = [
+            'orientation_completed', 
+            'action_plan_prepared', 
+            'mchn_plan_available', 
+            'map_displayed', 
+            'key_focus_areas', 
+            'disseminated_with_health_functionaries', 
+            'monthly_dhs_meeting', 
+            'review_mechanism', 
+            'facilities_for_nqas'
+        ];
+
+        radioGroups.forEach(groupName => {
+            const selectedOption = document.querySelector(`input[name="${groupName}"]:checked`);
+
+            if (!selectedOption) {
+                isValid = false;
+            }
+        });
+
+        return isValid;
+    }
+
+    // Section 2 - Facilities for NQAS Certification Validation
+    const hasBlockIdentifiedNQAS = document.getElementById("facilities_for_nqas_yes").checked; 
+    const phcCount = document.getElementById("num_phc_for_nqas"); 
+    const chcCount = document.getElementById("num_chc_for_nqas");
+    const scCount = document.getElementById("num_sc_for_nqas");
+    const totalFacilities = document.getElementById("num_facilities_for_nqas"); 
+
+    if (hasBlockIdentifiedNQAS) {
+        
+        // Validate PHC count (0-50)
+        if (phcCount.value < 0 || phcCount.value > 50 || isNaN(phcCount.value)) {
+            isValid = false;
+            phcCount.classList.add("border-red-500");
+        } else {
+            phcCount.classList.remove("border-red-500");
+        }
+
+        // Validate CHC count (0-25)
+        if (chcCount.value < 0 || chcCount.value > 25 || isNaN(chcCount.value)) {
+            isValid = false;
+            chcCount.classList.add("border-red-500");
+        } else {
+            chcCount.classList.remove("border-red-500");
+        }
+
+        // Validate SC count (0-100)
+        if (scCount.value < 0 || scCount.value > 100 || isNaN(scCount.value)) {
+            isValid = false;
+            scCount.classList.add("border-red-500");
+        } else {
+            scCount.classList.remove("border-red-500");
+        }
+
+        // Auto-calculate total facilities (sum of PHC, CHC, and SC)
+        const total = parseInt(phcCount.value) + parseInt(chcCount.value) + parseInt(scCount.value);
+        totalFacilities.value = total;
+
+        // Validate that total facilities value is correctly calculated
+        if (totalFacilities.value !== total.toString()) {
+            isValid = false;
+            totalFacilities.classList.add("border-red-500");
+        } else {
+            totalFacilities.classList.remove("border-red-500");
+        }
+    }
+
+    // Validate Section 1 and Section 2
+    if (validateRadioButtons() && isValid) {
+        document.getElementById("section2").style.display = "none";
+        document.getElementById("section3").style.display = "block"; // Replace section3 with your actual next section
+    } else {
+        alert("Please fill out all required fields correctly.");
+    }
+});
+
+
+
+document.getElementById("saveNextButtonSection2").addEventListener("click", function (event) {
+    event.preventDefault();
+
+    let isValid = true;
+    
+    // Section 1 - Radio Button Validation
+    function validateRadioButtons() {
+        const radioGroups = [
+            'orientation_completed', 
+            'action_plan_prepared', 
+            'mchn_plan_available', 
+            'map_displayed', 
+            'key_focus_areas', 
+            'disseminated_with_health_functionaries', 
+            'monthly_dhs_meeting', 
+            'review_mechanism', 
+            'facilities_for_nqas'
+        ];
+
+        radioGroups.forEach(groupName => {
+            const selectedOption = document.querySelector(`input[name="${groupName}"]:checked`);
+
+            if (!selectedOption) {
+                isValid = false;
+            }
+        });
+
+        return isValid;
+    }
+
+    // Section 2 - Facilities for NQAS Certification Validation
+    const hasBlockIdentifiedNQAS = document.getElementById("facilities_for_nqas_yes").checked; 
+    const phcCount = document.getElementById("num_phc_for_nqas"); 
+    const chcCount = document.getElementById("num_chc_for_nqas");
+    const scCount = document.getElementById("num_sc_for_nqas");
+    const totalFacilities = document.getElementById("num_facilities_for_nqas"); 
+
+    if (hasBlockIdentifiedNQAS) {
+        
+        // Validate PHC count (0-50)
+        if (phcCount.value < 0 || phcCount.value > 50 || isNaN(phcCount.value)) {
+            isValid = false;
+            phcCount.classList.add("border-red-500");
+        } else {
+            phcCount.classList.remove("border-red-500");
+        }
+
+        // Validate CHC count (0-25)
+        if (chcCount.value < 0 || chcCount.value > 25 || isNaN(chcCount.value)) {
+            isValid = false;
+            chcCount.classList.add("border-red-500");
+        } else {
+            chcCount.classList.remove("border-red-500");
+        }
+
+        // Validate SC count (0-100)
+        if (scCount.value < 0 || scCount.value > 100 || isNaN(scCount.value)) {
+            isValid = false;
+            scCount.classList.add("border-red-500");
+        } else {
+            scCount.classList.remove("border-red-500");
+        }
+
+        // Auto-calculate total facilities (sum of PHC, CHC, and SC)
+        const total = parseInt(phcCount.value) + parseInt(chcCount.value) + parseInt(scCount.value);
+        totalFacilities.value = total;
+
+        // Validate that total facilities value is correctly calculated
+        if (totalFacilities.value !== total.toString()) {
+            isValid = false;
+            totalFacilities.classList.add("border-red-500");
+        } else {
+            totalFacilities.classList.remove("border-red-500");
+        }
+    }
+
+    // Validate Section 1 and Section 2
+    if (validateRadioButtons() && isValid) {
+        document.getElementById("section2").style.display = "none";
+        document.getElementById("section3").style.display = "block"; // Replace section3 with your actual next section
+    } else {
+        alert("Please fill out all required fields correctly.");
+    }
+});
+
+
+
+
+
+
+20 dec - 3-35 
+// document.getElementById("saveNextButtonSection2").addEventListener("click", function (event) {
+//     event.preventDefault(); 
+    
+//     let isValid = true;
+//     // Section 2 - Facilities for NQAS Certification Validation
+//             const hasBlockIdentifiedNQAS = document.getElementById("facilities_for_nqas_yes").checked; 
+//             const phcCount = document.getElementById("num_phc_for_nqas"); 
+//             const chcCount = document.getElementById("num_chc_for_nqas");
+//             const scCount = document.getElementById("num_sc_for_nqas");
+//             const totalFacilities = document.getElementById("num_facilities_for_nqas"); 
+
+//     if (hasBlockIdentifiedNQAS) {
+        
+//         // Validate PHC count (0-50)
+//         if (phcCount.value < 0 || phcCount.value > 50 || isNaN(phcCount.value)) {
+//             isValid = false;
+//             phcCount.classList.add("border-red-500");
+//         } else {
+//             phcCount.classList.remove("border-red-500");
+//         }
+
+//         // Validate CHC count (0-25)
+//         if (chcCount.value < 0 || chcCount.value > 25 || isNaN(chcCount.value)) {
+//             isValid = false;
+//             chcCount.classList.add("border-red-500");
+//         } else {
+//             chcCount.classList.remove("border-red-500");
+//         }
+
+//         // Validate SC count (0-100)
+//         if (scCount.value < 0 || scCount.value > 100 || isNaN(scCount.value)) {
+//             isValid = false;
+//             scCount.classList.add("border-red-500");
+//         } else {
+//             scCount.classList.remove("border-red-500");
+//         }
+
+//         // Auto-calculate total facilities (sum of PHC, CHC, and SC)
+//         const total = parseInt(phcCount.value) + parseInt(chcCount.value) + parseInt(scCount.value);
+//         totalFacilities.value = total;
+
+//         // Validate that total facilities value is correctly calculated
+//         if (totalFacilities.value !== total.toString()) {
+//             isValid = false;
+//             totalFacilities.classList.add("border-red-500");
+//         } else {
+//             totalFacilities.classList.remove("border-red-500");
+//         }
+//     }
+
+//     // If Section 2 is valid, move to the next section
+//     if (isValid) {
+//         document.getElementById("section2").style.display = "none";
+//         document.getElementById("section3").style.display = "block"; // Replace section3 with your actual next section
+//     } else {
+//         alert("Please fill out all required fields correctly.");
+//     }
+// });
