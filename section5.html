@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Assessment Checklist Form</title>
+</head>
+
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto p-4">
+        <form id="dataForm">
+            <!-- Header Section -->
+            <div id="section5" class="section bg-white p-6 rounded shadow-md mb-4" style="display: block;">
+                <h2 class="text-3xl font-bold mb-6 text-black-600">Human Resource for Health</h2>
+                <p class="text-sm text-red-500 mb-4">* indicates a required question</p>
+                <div class="text-right">
+                    <span class="text-sm text-red-500 bg-gray-200 rounded-full px-2 py-1">5/8</span>
+                </div>
+
+                <!-- Main Content -->
+                <div class="container mx-auto p-6 space-y-6">
+                    <!-- Obstetrician Section -->
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-semibold text-blue-600 mb-4">Obstetrician and Gynecologist</h3>
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Regular"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Regular</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="regular-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('regular-sanctioned', 'regular-available', 0, 150, 'sanctioned-error')">
+                                    <label for="regular-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">Sanctioned</label>
+                                    <div id="sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="regular-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('regular-sanctioned', 'regular-available', 'available-error')">
+                                    <label for="regular-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">Available</label>
+                                    <div id="available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Contractual"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Contractual</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="contractual-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('contractual-sanctioned', 'contractual-available', 0, 150, 'contractual-sanctioned-error')">
+                                    <label for="contractual-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="contractual-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="contractual-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('contractual-sanctioned', 'contractual-available', 'contractual-available-error')">
+                                    <label for="contractual-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="contractual-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Anesthetist Section -->
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-semibold text-blue-600 mb-4">Anesthetist</h3>
+
+                        <!-- Regular Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Regular"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Regular</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="regular-anesthetist-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('regular-anesthetist-sanctioned', 'regular-anesthetist-available', 0, 150, 'regular-anesthetist-sanctioned-error')">
+                                    <label for="regular-anesthetist-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="regular-anesthetist-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="regular-anesthetist-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('regular-anesthetist-sanctioned', 'regular-anesthetist-available', 'regular-anesthetist-available-error')">
+                                    <label for="regular-anesthetist-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="regular-anesthetist-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contractual Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Contractual"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Contractual</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="contractual-anesthetist-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('contractual-anesthetist-sanctioned', 'contractual-anesthetist-available', 0, 150, 'contractual-anesthetist-sanctioned-error')">
+                                    <label for="contractual-anesthetist-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="contractual-anesthetist-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="contractual-anesthetist-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('contractual-anesthetist-sanctioned', 'contractual-anesthetist-available', 'contractual-anesthetist-available-error')">
+                                    <label for="contractual-anesthetist-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="contractual-anesthetist-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Pediatrician Section -->
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-semibold text-blue-600 mb-4">Pediatrician</h3>
+
+                        <!-- Regular Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Regular"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Regular</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="regular-pediatrician-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('regular-pediatrician-sanctioned', 'regular-pediatrician-available', 0, 150, 'regular-pediatrician-sanctioned-error')">
+                                    <label for="regular-pediatrician-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="regular-pediatrician-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="regular-pediatrician-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('regular-pediatrician-sanctioned', 'regular-pediatrician-available', 'regular-pediatrician-available-error')">
+                                    <label for="regular-pediatrician-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="regular-pediatrician-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contractual Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Contractual"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Contractual</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="contractual-pediatrician-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('contractual-pediatrician-sanctioned', 'contractual-pediatrician-available', 0, 150, 'contractual-pediatrician-sanctioned-error')">
+                                    <label for="contractual-pediatrician-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="contractual-pediatrician-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="contractual-pediatrician-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('contractual-pediatrician-sanctioned', 'contractual-pediatrician-available', 'contractual-pediatrician-available-error')">
+                                    <label for="contractual-pediatrician-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="contractual-pediatrician-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- General Medicine Section -->
+                    <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                        <h3 class="text-2xl font-semibold text-blue-600 mb-4">General Medicine</h3>
+
+                        <!-- Regular Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Regular"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Regular</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="regular-GeneralMedicine-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('regular-GeneralMedicine-sanctioned', 'regular-GeneralMedicine-available', 0, 150, 'regular-GeneralMedicine-sanctioned-error')">
+                                    <label for="regular-GeneralMedicine-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="regular-GeneralMedicine-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="regular-GeneralMedicine-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('regular-GeneralMedicine-sanctioned', 'regular-GeneralMedicine-available', 'regular-GeneralMedicine-available-error')">
+                                    <label for="regular-GeneralMedicine-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="regular-GeneralMedicine-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contractual Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Contractual"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Contractual</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="contractual-GeneralMedicine-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('contractual-GeneralMedicine-sanctioned', 'contractual-GeneralMedicine-available', 0, 150, 'contractual-GeneralMedicine-sanctioned-error')">
+                                    <label for="contractual-GeneralMedicine-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="contractual-GeneralMedicine-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="contractual-GeneralMedicine-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('contractual-GeneralMedicine-sanctioned', 'contractual-GeneralMedicine-available', 'contractual-GeneralMedicine-available-error')">
+                                    <label for="contractual-GeneralMedicine-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="contractual-GeneralMedicine-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Medical Officers (GDMO) Section -->
+                    <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                        <h3 class="text-2xl font-semibold text-blue-600 mb-4">Medical Officers (GDMO)</h3>
+
+                        <!-- Regular Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Regular"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Regular</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="regular-MedicalOfficersGDMO-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('regular-MedicalOfficersGDMO-sanctioned', 'regular-MedicalOfficersGDMO-available', 0, 150, 'regular-MedicalOfficersGDMO-sanctioned-error')">
+                                    <label for="regular-MedicalOfficersGDMO-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="regular-MedicalOfficersGDMO-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="regular-MedicalOfficersGDMO-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('regular-MedicalOfficersGDMO-sanctioned', 'regular-MedicalOfficersGDMO-available', 'regular-MedicalOfficersGDMO-available-error')">
+                                    <label for="regular-MedicalOfficersGDMO-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="regular-MedicalOfficersGDMO-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contractual Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Contractual"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Contractual</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="contractual-MedicalOfficersGDMO-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('contractual-MedicalOfficersGDMO-sanctioned', 'contractual-MedicalOfficersGDMO-available', 0, 150, 'contractual-MedicalOfficersGDMO-sanctioned-error')">
+                                    <label for="contractual-MedicalOfficersGDMO-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="contractual-MedicalOfficersGDMO-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="contractual-MedicalOfficersGDMO-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('contractual-MedicalOfficersGDMO-sanctioned', 'contractual-MedicalOfficersGDMO-available', 'contractual-MedicalOfficersGDMO-available-error')">
+                                    <label for="contractual-MedicalOfficersGDMO-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="contractual-MedicalOfficersGDMO-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Community Health Officers (CHO) Section -->
+                    <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                        <h3 class="text-2xl font-semibold text-blue-600 mb-4">Community Health Officers (CHO)</h3>
+
+                        <!-- Regular Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Regular"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Regular</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="regular-CHO-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('regular-CHO-sanctioned', 'regular-CHO-available', 0, 150, 'regular-CHO-sanctioned-error')">
+                                    <label for="regular-CHO-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="regular-CHO-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="regular-CHO-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('regular-CHO-sanctioned', 'regular-CHO-available', 'regular-CHO-available-error')">
+                                    <label for="regular-CHO-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="regular-CHO-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contractual Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Contractual"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Contractual</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="contractual-CHO-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('contractual-CHO-sanctioned', 'contractual-CHO-available', 0, 150, 'contractual-CHO-sanctioned-error')">
+                                    <label for="contractual-CHO-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="contractual-CHO-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="contractual-CHO-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('contractual-CHO-sanctioned', 'contractual-CHO-available', 'contractual-CHO-available-error')">
+                                    <label for="contractual-CHO-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="contractual-CHO-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Pharmacist Section -->
+                    <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                        <h3 class="text-2xl font-semibold text-blue-600 mb-4">Pharmacist</h3>
+
+                        <!-- Regular Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Regular"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Regular</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="regular-Pharmacist-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('regular-Pharmacist-sanctioned', 'regular-Pharmacist-available', 0, 150, 'regular-Pharmacist-sanctioned-error')">
+                                    <label for="regular-Pharmacist-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="regular-Pharmacist-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="regular-Pharmacist-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('regular-Pharmacist-sanctioned', 'regular-Pharmacist-available', 'regular-Pharmacist-available-error')">
+                                    <label for="regular-Pharmacist-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="regular-Pharmacist-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contractual Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Contractual"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Contractual</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="contractual-Pharmacist-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('contractual-Pharmacist-sanctioned', 'contractual-Pharmacist-available', 0, 150, 'contractual-Pharmacist-sanctioned-error')">
+                                    <label for="contractual-Pharmacist-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="contractual-Pharmacist-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="contractual-Pharmacist-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('contractual-Pharmacist-sanctioned', 'contractual-Pharmacist-available', 'contractual-Pharmacist-available-error')">
+                                    <label for="contractual-Pharmacist-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="contractual-Pharmacist-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Lab Technicians Section -->
+                    <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                        <h3 class="text-2xl font-semibold text-blue-600 mb-4">Lab Technicians</h3>
+
+                        <!-- Regular Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Regular"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Regular</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="regular-LabTechnicians-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('regular-LabTechnicians-sanctioned', 'regular-LabTechnicians-available', 0, 150, 'regular-LabTechnicians-sanctioned-error')">
+                                    <label for="regular-LabTechnicians-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="regular-LabTechnicians-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="regular-LabTechnicians-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('regular-LabTechnicians-sanctioned', 'regular-LabTechnicians-available', 'regular-LabTechnicians-available-error')">
+                                    <label for="regular-LabTechnicians-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="regular-LabTechnicians-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contractual Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Contractual"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Contractual</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="contractual-LabTechnicians-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('contractual-LabTechnicians-sanctioned', 'contractual-LabTechnicians-available', 0, 150, 'contractual-LabTechnicians-sanctioned-error')">
+                                    <label for="contractual-LabTechnicians-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="contractual-LabTechnicians-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="contractual-LabTechnicians-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('contractual-LabTechnicians-sanctioned', 'contractual-LabTechnicians-available', 'contractual-LabTechnicians-available-error')">
+                                    <label for="contractual-LabTechnicians-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="contractual-LabTechnicians-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NETP STS / Block In-Charge Section -->
+                    <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                        <h3 class="text-2xl font-semibold text-blue-600 mb-4">NETP STS / Block In-Charge</h3>
+
+                        <!-- Regular Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Regular"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Regular</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="regular-NETP-STS-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('regular-NETP-STS-sanctioned', 'regular-NETP-STS-available', 0, 150, 'regular-NETP-STS-sanctioned-error')">
+                                    <label for="regular-NETP-STS-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="regular-NETP-STS-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="regular-NETP-STS-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('regular-NETP-STS-sanctioned', 'regular-NETP-STS-available', 'regular-NETP-STS-available-error')">
+                                    <label for="regular-NETP-STS-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="regular-NETP-STS-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contractual Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Contractual"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Contractual</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="contractual-NETP-STS-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('contractual-NETP-STS-sanctioned', 'contractual-NETP-STS-available', 0, 150, 'contractual-NETP-STS-sanctioned-error')">
+                                    <label for="contractual-NETP-STS-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="contractual-NETP-STS-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="contractual-NETP-STS-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('contractual-NETP-STS-sanctioned', 'contractual-NETP-STS-available', 'contractual-NETP-STS-available-error')">
+                                    <label for="contractual-NETP-STS-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="contractual-NETP-STS-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- NETP STLS / Block In-Charge Section -->
+                    <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                        <h3 class="text-2xl font-semibold text-blue-600 mb-4">NETP STLS / Block In-Charge</h3>
+
+                        <!-- Regular Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Regular"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Regular</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="regular-NETP-STLS-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('regular-NETP-STLS-sanctioned', 'regular-NETP-STLS-available', 0, 150, 'regular-NETP-STLS-sanctioned-error')">
+                                    <label for="regular-NETP-STLS-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="regular-NETP-STLS-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="regular-NETP-STLS-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('regular-NETP-STLS-sanctioned', 'regular-NETP-STLS-available', 'regular-NETP-STLS-available-error')">
+                                    <label for="regular-NETP-STLS-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="regular-NETP-STLS-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contractual Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Contractual"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Contractual</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="contractual-NETP-STLS-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('contractual-NETP-STLS-sanctioned', 'contractual-NETP-STLS-available', 0, 150, 'contractual-NETP-STLS-sanctioned-error')">
+                                    <label for="contractual-NETP-STLS-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="contractual-NETP-STLS-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="contractual-NETP-STLS-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('contractual-NETP-STLS-sanctioned', 'contractual-NETP-STLS-available', 'contractual-NETP-STLS-available-error')">
+                                    <label for="contractual-NETP-STLS-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="contractual-NETP-STLS-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ANMs Section -->
+                    <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                        <h3 class="text-2xl font-semibold text-blue-600 mb-4">ANMs</h3>
+
+                        <!-- Regular Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Regular"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Regular</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="regular-ANMs-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('regular-ANMs-sanctioned', 'regular-ANMs-available', 0, 150, 'regular-ANMs-sanctioned-error')">
+                                    <label for="regular-ANMs-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="regular-ANMs-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="regular-ANMs-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('regular-ANMs-sanctioned', 'regular-ANMs-available', 'regular-ANMs-available-error')">
+                                    <label for="regular-ANMs-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="regular-ANMs-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contractual Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Contractual"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Contractual</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="contractual-ANMs-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('contractual-ANMs-sanctioned', 'contractual-ANMs-available', 0, 150, 'contractual-ANMs-sanctioned-error')">
+                                    <label for="contractual-ANMs-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="contractual-ANMs-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="contractual-ANMs-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('contractual-ANMs-sanctioned', 'contractual-ANMs-available', 'contractual-ANMs-available-error')">
+                                    <label for="contractual-ANMs-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="contractual-ANMs-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ASHAs Section -->
+                    <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                        <h3 class="text-2xl font-semibold text-blue-600 mb-4">ASHAs</h3>
+
+                        <!-- Regular Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Regular"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Regular</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="regular-ASHAs-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('regular-ASHAs-sanctioned', 'regular-ASHAs-available', 0, 150, 'regular-ASHAs-sanctioned-error')">
+                                    <label for="regular-ASHAs-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="regular-ASHAs-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="regular-ASHAs-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('regular-ASHAs-sanctioned', 'regular-ASHAs-available', 'regular-ASHAs-available-error')">
+                                    <label for="regular-ASHAs-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="regular-ASHAs-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contractual Section -->
+                        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <label for="Contractual"
+                                class="block text-gray-700 text-lg font-semibold col-span-1">Contractual</label>
+                            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                                    <input type="number" id="contractual-ASHAs-sanctioned"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required
+                                        oninput="validateSanctionedInput('contractual-ASHAs-sanctioned', 'contractual-ASHAs-available', 0, 150, 'contractual-ASHAs-sanctioned-error')">
+                                    <label for="contractual-ASHAs-sanctioned"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Sanctioned
+                                    </label>
+                                    <div id="contractual-ASHAs-sanctioned-error" class="error"></div>
+                                </div>
+                                <div class="relative w-full sm:w-1/2">
+                                    <input type="number" id="contractual-ASHAs-available"
+                                        class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder=" " required disabled
+                                        oninput="validateAvailableInput('contractual-ASHAs-sanctioned', 'contractual-ASHAs-available', 'contractual-ASHAs-available-error')">
+                                    <label for="contractual-ASHAs-available"
+                                        class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+                                        Available
+                                    </label>
+                                    <div id="contractual-ASHAs-available-error" class="error"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end mt-6">
+                        <button type="button" id="saveNextButtonSection1"
+                            class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300"
+                            onclick="saveAndNext(1)">Save & Next</button>
+                    </div>
+        </form>
+    </div>
+
+    <script>
+         function validateSanctionedInput() {
+            const sanctionedInput = document.getElementById('regular-sanctioned');
+            const availableInput = document.getElementById('regular-available');
+            const sanctionedValue = parseInt(sanctionedInput.value, 10);
+            const errorMessage = document.getElementById('sanctioned-error');
+
+            if (isNaN(sanctionedValue) || sanctionedValue < 0 || sanctionedValue > 150) {
+                errorMessage.textContent = '*Sanctioned value must be between 0 and 150.';
+                availableInput.disabled = true;
+                availableInput.value = '';
+            } else {
+                errorMessage.textContent = '';
+                availableInput.disabled = sanctionedValue === 0;
+            }
+
+            validateAvailableInput();
+        }
+
+        function validateAvailableInput() {
+            const sanctionedInput = document.getElementById('regular-sanctioned');
+            const availableInput = document.getElementById('regular-available');
+            const availableValue = parseInt(availableInput.value, 10);
+            const sanctionedValue = parseInt(sanctionedInput.value, 10);
+            const errorMessage = document.getElementById('available-error');
+
+            if (!isNaN(sanctionedValue) && sanctionedValue > 0 && (isNaN(availableValue) || availableValue < 0 || availableValue > sanctionedValue)) {
+                errorMessage.textContent = '*Available value must be between 0 and the Sanctioned value.';
+            } else {
+                errorMessage.textContent = '';
+            }
+        }
+    </script>
+    </script>
+
+</body>
+
+</html>

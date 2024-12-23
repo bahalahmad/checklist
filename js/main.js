@@ -1,156 +1,16 @@
+const totalphcCount = document.getElementById("total_phc");
+const totalchcCount = document.getElementById("total_chc");
+const totalSubCentreCount = document.getElementById("total_sub_centre");
+const totalHealthFacilitiesCount = document.getElementById("health_facilities");
 
-// document.getElementById("saveNextButtonSection1").addEventListener("click", function (event) {
-//     event.preventDefault(); // Prevent form submission
-    
-//     let isValid = true; // Track the validity of the form
+function updateTotal() {
+    const total = (parseInt(totalphcCount.value) || 0) + (parseInt(totalchcCount.value) || 0) + (parseInt(totalSubCentreCount.value) || 0);
+    totalHealthFacilitiesCount.value = total;
+}
 
-//     // General Information Validation
-//     const district = document.getElementById("district");
-//     const block = document.getElementById("block");
-//     if (!district.value) {
-//         isValid = false;
-//         district.classList.add("border-red-500");
-//     } else {
-//         district.classList.remove("border-red-500");
-//     }
-
-//     if (!block.value) {
-//         isValid = false;
-//         block.classList.add("border-red-500");
-//     } else {
-//         block.classList.remove("border-red-500");
-//     }
-
-//     // Block Development Officer Section Validation
-//     const bdoName = document.getElementById("bdo_name");
-//     const bdoContact = document.getElementById("bdo_contact");
-//     const bdoEmail = document.getElementById("bdo_email");
-//     if (!bdoName.value) {
-//         isValid = false;
-//         bdoName.classList.add("border-red-500");
-//     } else {
-//         bdoName.classList.remove("border-red-500");
-//     }
-
-//     if (!bdoContact.value || !/^\d{10}$/.test(bdoContact.value)) {
-//         isValid = false;
-//         bdoContact.classList.add("border-red-500");
-//     } else {
-//         bdoContact.classList.remove("border-red-500");
-//     }
-
-//     if (!bdoEmail.value || !/\S+@\S+\.\S+/.test(bdoEmail.value)) {
-//         isValid = false;
-//         bdoEmail.classList.add("border-red-500");
-//     } else {
-//         bdoEmail.classList.remove("border-red-500");
-//     }
-
-//     // Sub District Magistrate Section Validation
-//     const sdmName = document.getElementById("sdm_name");
-//     const sdmContact = document.getElementById("sdm_contact");
-//     const sdmEmail = document.getElementById("sdm_email");
-//     if (!sdmName.value) {
-//         isValid = false;
-//         sdmName.classList.add("border-red-500");
-//     } else {
-//         sdmName.classList.remove("border-red-500");
-//     }
-
-//     if (!sdmContact.value || !/^\d{10}$/.test(sdmContact.value)) {
-//         isValid = false;
-//         sdmContact.classList.add("border-red-500");
-//     } else {
-//         sdmContact.classList.remove("border-red-500");
-//     }
-
-//     if (!sdmEmail.value || !/\S+@\S+\.\S+/.test(sdmEmail.value)) {
-//         isValid = false;
-//         sdmEmail.classList.add("border-red-500");
-//     } else {
-//         sdmEmail.classList.remove("border-red-500");
-//     }
-
-//     // Block Medical Officer Section Validation
-//     const bmoName = document.getElementById("bmo_name");
-//     const bmoContact = document.getElementById("bmo_contact");
-//     const bmoEmail = document.getElementById("bmo_email");
-//     if (!bmoName.value) {
-//         isValid = false;
-//         bmoName.classList.add("border-red-500");
-//     } else {
-//         bmoName.classList.remove("border-red-500");
-//     }
-
-//     if (!bmoContact.value || !/^\d{10}$/.test(bmoContact.value)) {
-//         isValid = false;
-//         bmoContact.classList.add("border-red-500");
-//     } else {
-//         bmoContact.classList.remove("border-red-500");
-//     }
-
-//     if (!bmoEmail.value || !/\S+@\S+\.\S+/.test(bmoEmail.value)) {
-//         isValid = false;
-//         bmoEmail.classList.add("border-red-500");
-//     } else {
-//         bmoEmail.classList.remove("border-red-500");
-//     }
-
-//     // Demographic Details Section Validation
-//     const areaType = document.querySelector('input[name="area_type"]:checked');
-//     const numVillages = document.getElementById("num_villages");
-//     const healthFacilities = document.getElementById("health_facilities");
-//     const totalPhc = document.getElementById("total_phc");
-//     const totalChc = document.getElementById("total_chc");
-//     const totalSubCentre = document.getElementById("total_sub_centre");
-//     const aanganwadiCentre = document.getElementById("aanganwadi_centre");
-//     const populationCovered = document.getElementById("population_covered");
-//     const eligibleCouple = document.getElementById("eligible_couple");
-//     const pregnantWomen = document.getElementById("pregnant_women");
-//     const liveBirth = document.getElementById("live_birth");
-//     const children01 = document.getElementById("children_0_1");
-//     const populationAbove30 = document.getElementById("population_above_30");
-//     const pmjayCard = document.getElementById("pmjay_card");
-//     const abhaId = document.getElementById("abha_id");
-
-//     if (!areaType) {
-//         isValid = false;
-//         document.querySelector('input[name="area_type"]').parentElement.classList.add("text-red-500");
-//     } else {
-//         document.querySelector('input[name="area_type"]').parentElement.classList.remove("text-red-500");
-//     }
-
-//     // Number validations for demographic details
-//     const numericFields = [
-//         numVillages, healthFacilities, totalPhc, totalChc, totalSubCentre, 
-//         aanganwadiCentre, populationCovered, eligibleCouple, pregnantWomen, 
-//         liveBirth, children01, populationAbove30, abhaId
-//     ];
-
-//     numericFields.forEach(field => {
-//         if (!field.value || isNaN(field.value)) {
-//             isValid = false;
-//             field.classList.add("border-red-500");
-//         } else {
-//             field.classList.remove("border-red-500");
-//         }
-//     });
-
-//     if (!pmjayCard.value) {
-//         isValid = false;
-//         pmjayCard.classList.add("border-red-500");
-//     } else {
-//         pmjayCard.classList.remove("border-red-500");
-//     }
-
-//     if (isValid) {
-//         // Move to the next section if valid
-//         document.getElementById("section1").style.display = "none";
-//         document.getElementById("section2").style.display = "block"; // Replace section2 with your actual section
-//     } else {
-//         alert("Please fill out all required fields correctly.");
-//     }
-// });
+totalphcCount .addEventListener("input", updateTotal);
+totalchcCount.addEventListener("input", updateTotal);
+totalSubCentreCount.addEventListener("input", updateTotal);
 document.getElementById("saveNextButtonSection1").addEventListener("click", function (event) {
     event.preventDefault(); // Prevent form submission
     
@@ -184,6 +44,7 @@ document.getElementById("saveNextButtonSection1").addEventListener("click", func
             validName = false;
             name.classList.add("border-red-500");
             document.getElementById(nameErrorId).textContent = "Name is required and should not exceed 50 characters.";
+            document.getElementById(nameErrorId).classList.add("text-red-500");
         } else {
             name.classList.remove("border-red-500");
             document.getElementById(nameErrorId).textContent = "";
@@ -194,6 +55,7 @@ document.getElementById("saveNextButtonSection1").addEventListener("click", func
             validContact = false;
             contact.classList.add("border-red-500");
             document.getElementById(contactErrorId).textContent = "Contact number should start with 6-9 and have 10 digits.";
+            document.getElementById(contactErrorId).classList.add("text-red-500");
         } else {
             contact.classList.remove("border-red-500");
             document.getElementById(contactErrorId).textContent = "";
@@ -203,10 +65,24 @@ document.getElementById("saveNextButtonSection1").addEventListener("click", func
     };
 
     // Block Development Officer Section Validation
-    const bdoValid = validateNameAndContact("bdo_name", "bdo_contact", "bdo_name_error", "bdo_contact_error");
+    // const bdoValid = validateNameAndContact("bdo_name", "bdo_contact", "bdo_name_error", "bdo_contact_error");
+
+    // // Sub District Magistrate Section Validation
+    // const sdmValid = validateNameAndContact("sdm_name", "sdm_contact", "sdm_name_error", "sdm_contact_error");
+    const bdoName = document.getElementById("bdo_name");
+    const bdoContact = document.getElementById("bdo_contact");
+    let bdoValid = true;
+    if (bdoName.value || bdoContact.value) {
+        bdoValid = validateNameAndContact("bdo_name", "bdo_contact", "bdo_name_error", "bdo_contact_error");
+    }
 
     // Sub District Magistrate Section Validation
-    const sdmValid = validateNameAndContact("sdm_name", "sdm_contact", "sdm_name_error", "sdm_contact_error");
+    const sdmName = document.getElementById("sdm_name");
+    const sdmContact = document.getElementById("sdm_contact");
+    let sdmValid = true;
+    if (sdmName.value || sdmContact.value) {
+        sdmValid = validateNameAndContact("sdm_name", "sdm_contact", "sdm_name_error", "sdm_contact_error");
+    }
 
     // Block Medical Officer Section Validation
     const bmoValid = validateNameAndContact("bmo_name", "bmo_contact", "bmo_name_error", "bmo_contact_error");
@@ -240,7 +116,8 @@ document.getElementById("saveNextButtonSection1").addEventListener("click", func
         if (!field.value || isNaN(field.value) || field.value < min || field.value > max) {
             isValid = false;
             field.classList.add("border-red-500");
-            document.getElementById(errorId).textContent = `Value should be between ${min} and ${max}.`;
+            document.getElementById(errorId).textContent = `*Value should be between ${min} and ${max}.`;
+            document.getElementById(errorId).classList.add("text-red-500");
         } else {
             field.classList.remove("border-red-500");
             document.getElementById(errorId).textContent = "";
@@ -259,12 +136,7 @@ document.getElementById("saveNextButtonSection1").addEventListener("click", func
     validateNumericField(children01, 0, 99999, "children_0_1_error");
     validateNumericField(populationAbove30, 1, 10000, "population_above_30_error");
     validateNumericField(pmjayCard, 0, 99999, "pmjay_card_error");
-    validateNumericField(abhaId, 0, 99999, "abha_id_error");
-
-    // Total health facilities auto calculation
-    const totalHealthFacilities = (parseInt(totalPhc.value) || 0) + (parseInt(totalChc.value) || 0) + (parseInt(totalSubCentre.value) || 0);
-    healthFacilities.value = totalHealthFacilities;
-
+    validateNumericField(abhaId, 0, 99999, "abha_id_error");    
     if (bdoValid && sdmValid && bmoValid && isValid) {
         // Move to the next section if valid
         document.getElementById("section1").style.display = "none";
@@ -273,6 +145,8 @@ document.getElementById("saveNextButtonSection1").addEventListener("click", func
         alert("Please fill out all required fields correctly.");
     }
 });
+
+// Start of section 2 validation
 
 document.getElementById("facilities_for_nqas_yes").addEventListener("change", function() {
     document.getElementById("nqasDetails").classList.remove("hidden");
@@ -300,7 +174,7 @@ document.getElementById("saveNextButtonSection2").addEventListener("click", func
     event.preventDefault();
     let isValid = true;
 
-    // Section 1 - Radio Button Validation
+    // Section 2 - Radio Button Validation
     function validateRadioButtons() {
         const radioGroups = [
             'orientation_completed', 
@@ -327,22 +201,22 @@ document.getElementById("saveNextButtonSection2").addEventListener("click", func
     // Section 2 - Facilities for NQAS Certification Validation
     const hasBlockIdentifiedNQAS = document.getElementById("facilities_for_nqas_yes").checked; 
 
-    function validateField(field, min, max) {
+    function validateField(field, min, max,errorId) {
         if (field.value < min || field.value > max || isNaN(field.value)) {
             isValid = false;
             field.classList.add("border-red-500");
+            document.getElementById(errorId).textContent = `Value should be between ${min} and ${max}.`;
+            document.getElementById(errorId).classList.add("text-red-500");
         } else {
             field.classList.remove("border-red-500");
+            document.getElementById(errorId).textContent = "";
         }
     }
 
     if (hasBlockIdentifiedNQAS) {
-        validateField(phcCount, 0, 50);
-        validateField(chcCount, 0, 25);
-        validateField(scCount, 0, 100);
-
-        const total = (parseInt(phcCount.value) || 0) + (parseInt(chcCount.value) || 0) + (parseInt(scCount.value) || 0);
-        totalFacilities.value = total;
+        validateField(phcCount, 0, 50,"phc_count_error");
+        validateField(chcCount, 0, 25,"chc_count_error");
+        validateField(scCount, 0, 100,"sc_count_error");
     }
 
     if (validateRadioButtons() && isValid) {
@@ -354,102 +228,215 @@ document.getElementById("saveNextButtonSection2").addEventListener("click", func
 });
 
 
+// //section 3 validations 
+
+// Function to toggle visibility based on radio button selection
+function toggleVisibility(triggerId, targetId, action) {
+    document.getElementById(triggerId).addEventListener("change", function () {
+        const targetElement = document.getElementById(targetId);
+        if (action === "show") {
+            targetElement.classList.remove("hidden");
+        } else if (action === "hide") {
+            targetElement.classList.add("hidden");
+        }
+    });
+}
+
+// Show/hide based on BPHU setup radio button selection
+toggleVisibility("block_public_health_yes", "functional_components", "show");
+toggleVisibility("block_public_health_no", "functional_components", "hide");
+toggleVisibility("additional_funds_cell_yes", "activities_proposed_div", "show");
+toggleVisibility("additional_funds_cell_no", "activities_proposed_div", "hide");
+toggleVisibility("block_quality_cell_additional_yes", "activities_proposed_div1", "show");
+toggleVisibility("block_quality_cell_additional_no", "activities_proposed_div1", "hide");
+toggleVisibility("block_quality_cell_direct_yes", "dbt_question_label", "show");
+toggleVisibility("block_quality_cell_direct_no", "dbt_question_label", "hide");
+toggleVisibility("block_quality_cell_comittess_yes", "verify_with_question_label", "show");
+toggleVisibility("block_quality_cell_comittess_no", "verify_with_question_label", "hide");
+
+// Function to show or hide the 'Specify' input field based on the 'Any other (specify)' checkbox
+document.getElementById("other_block_role").addEventListener("change", function () {
+    const otherRoleSpecify = document.getElementById("other_role_specify");
+    otherRoleSpecify.style.display = this.checked ? "block" : "none";
+    if (!this.checked) {
+        otherRoleSpecify.value = "";
+    }
+});
+function toggleCheckboxes(triggerId, checkboxes, enable) {
+    document.getElementById(triggerId).addEventListener("change", function() {
+        checkboxes.forEach(function(checkboxId) {
+            document.getElementById(checkboxId).disabled = !enable;
+        });
+    });
+}
+
+const checkboxes = ["block_public_health_unit", "block_public_health_lab", "block_hmis_cell"];
+toggleCheckboxes("block_public_health_yes", checkboxes, true);
+toggleCheckboxes("block_public_health_no", checkboxes, false);
+
+// Function to handle the Save & Next button click event
 document.getElementById("saveNextButtonSection3").addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent form submission
-        
-        let isValid = true; // Track the validity of Section 3 form
-    
-        // Section 3 - Block Programme Management Unit Validation
-        const blockProgrammeManagementUnit = document.querySelectorAll("#block_programme_management_unit input[type='checkbox']");
-        const otherRoleSpecify = document.getElementById("other_role_specify");
-        
-        // Check if at least one option is selected
-        const isAnyBlockRoleSelected = Array.from(blockProgrammeManagementUnit).some(input => input.checked);
-        if (!isAnyBlockRoleSelected) {
+    event.preventDefault();
+    let isValid = true;
+
+    // Utility function for radio button validation
+    function validateRadioButtons(groupName) {
+        const selectedOption = document.querySelector(`input[name="${groupName}"]:checked`);
+        return !!selectedOption;
+    }
+    // Validate radio button groups
+    const radioGroups = [
+        'block_public_health',
+        'block_quality_cell_established',
+        'additional_funds_cell',
+        'block_quality_cell_additional',
+        'block_quality_cell_direct',
+        'block_quality_cell_payment',
+        'block_quality_cell_comittees',
+    ];
+
+    radioGroups.forEach(groupName => {
+        if (!validateRadioButtons(groupName)) {
             isValid = false;
-            document.getElementById("block_programme_management_unit").classList.add("border-red-500");
-        } else {
-            document.getElementById("block_programme_management_unit").classList.remove("border-red-500");
         }
-    
-        // Check if 'Any other' is selected, then validate the input
-        if (document.getElementById("other_block_role").checked && !otherRoleSpecify.value) {
+    });
+
+    // Utility function for input validation length
+    function validateTextInputLength(inputId, maxLength, errorId) {
+        const input = document.getElementById(inputId);
+                    if (input.value.length > maxLength) {
+                        document.getElementById(errorId).textContent = `Text cannot be more than ${maxLength} characters.`;
+                        document.getElementById(errorId).classList.add("text-red-500");
+                        return false;
+                    }
+                    else{
+                    document.getElementById(errorId).textContent = "";
+                    }
+                    return true;
+    }
+
+    // Utility function for number input validation range
+    function validateNumberInputRange(field, min, max, errorId) {
+        if (field.value < min || field.value > max || isNaN(field.value)) {
+            document.getElementById(errorId).textContent = `Value should be between ${min} and ${max}.`;
+            document.getElementById(errorId).classList.add("text-red-500");
+            return false;
+        } else {
+            document.getElementById(errorId).textContent = "";
+        }
+        return true;
+    }
+    // Validation for "Any other (specify)" text input
+    if (document.getElementById("other_block_role").checked) {
+        if (!validateTextInputLength("other_role_specify", 30, "other_role_count")) {
             isValid = false;
-            otherRoleSpecify.classList.add("border-red-500");
-        } else {
-            otherRoleSpecify.classList.remove("border-red-500");
         }
-    
-        // Section 3 - Which Components are Functional Validation
-        const functionalComponents = document.querySelectorAll("#functional_components input[type='checkbox']");
-        const isAnyComponentSelected = Array.from(functionalComponents).some(input => input.checked);
-        if (!isAnyComponentSelected) {
-            isValid = false;
-            document.getElementById("functional_components").classList.add("border-red-500");
-        } else {
-            document.getElementById("functional_components").classList.remove("border-red-500");
-        }
-    
-        // Section 3 - Is Block Quality Cell Established Validation
-        const blockQualityCellYes = document.getElementById("block_quality_cell_yes");
-        const blockQualityCellNo = document.getElementById("block_quality_cell_no");
-    
-        // Check if Yes/No is selected
-        if (!blockQualityCellYes.checked && !blockQualityCellNo.checked) {
-            isValid = false;
-            document.querySelector('input[name="block_quality_cell"]').parentElement.classList.add("border-red-500");
-        } else {
-            document.querySelector('input[name="block_quality_cell"]').parentElement.classList.remove("border-red-500");
-        }
-    
-        // Section 3 - Activities Proposed Validation (if Block Quality Cell is 'Yes')
-        if (blockQualityCellYes.checked) {
-            const activitiesProposed = document.getElementById("activities_proposed");
-            if (!activitiesProposed.value) {
-                isValid = false;
-                activitiesProposed.classList.add("border-red-500");
-            } else {
-                activitiesProposed.classList.remove("border-red-500");
+    }
+                        if (document.getElementById("block_public_health_yes").checked) {
+               const functionalComponentsCheckboxes = document.querySelectorAll("#functional_components input[type='checkbox']");
+                let isAnyFunctionalSelected = Array.from(functionalComponentsCheckboxes).some(checkbox => checkbox.checked);
+                if (!isAnyFunctionalSelected) {
+                    isValid = false;
+                }
             }
+
+    // Validation for "Any additional funds proposed by district in NHM PIP"
+    if (document.getElementById("additional_funds_cell_yes").checked) {
+        if (!validateTextInputLength("activities_proposed", 150, "activities_proposed_count")) {
+            isValid = false;
         }
-        
-    
-        // If Section 3 is valid, move to the next section
-        if (isValid) {
-            // Optionally, you can show the next section here (if applicable)
-            alert("Section 3 validated successfully!");
-            // Move to next section if needed (for example, display Section 4)
-            document.getElementById("section3").style.display = "none";
-            document.getElementById("section4").style.display = "block"; // Replace section4 with your actual section
-        } else {
-            alert("Please fill out all required fields correctly in Section 3.");
+    }
+
+    // Validation for "Any additional funds available for activities under CSR/JICS/other resources"
+    if (document.getElementById("block_quality_cell_additional_yes").checked) {
+        if (!validateTextInputLength("activities_proposed1", 150, "activities_proposed_count1")) {
+            isValid = false;
         }
-    });
-    
-    // Toggle the "Specify" text input visibility if 'Any other' is selected
-    document.getElementById("other_block_role").addEventListener("change", function() {
-        const otherRoleSpecify = document.getElementById("other_role_specify");
-        if (this.checked) {
-            otherRoleSpecify.style.display = "block";
-        } else {
-            otherRoleSpecify.style.display = "none";
+    }
+    // Validation for "Is the Direct Beneficiary Transfer (DBT) done timely?"
+    if (document.getElementById("block_quality_cell_direct_yes").checked) {
+        if (!validateNumberInputRange("num_villages", 0, 15000, "num_count_error")) {
+            isValid = false;
         }
-    });
-    
-    // Toggle the visibility of the "Activities Proposed" textarea based on Block Quality Cell selection
-    document.getElementById("block_quality_cell_yes").addEventListener("change", function() {
-        const activitiesProposedDiv = document.getElementById("activities_proposed_div");
-        if (this.checked) {
-            activitiesProposedDiv.style.display = "block";
-        } else {
-            activitiesProposedDiv.style.display = "none";
+        if (!validateNumberInputRange("health_facilities", 0, 15000, "health_count_error")) {
+            isValid = false;
         }
-    });
-    document.getElementById("block_quality_cell_no").addEventListener("change", function() {
-        const activitiesProposedDiv = document.getElementById("activities_proposed_div");
-        activitiesProposedDiv.style.display = "none"; // Hide if "No" is selected
-    });
-    
+        if (!validateNumberInputRange("total_phc", 0, 15000, "total_count_error")) {
+            isValid = false;
+        }
+    }
+
+    // Validation for "Verification done with last minutes of meeting"
+    if (document.getElementById("block_quality_cell_comittess_yes").checked) {
+        const verificationWithLastMin = document.querySelector(`input[name="verify_with_last_min"]:checked`);
+        if (!verificationWithLastMin) {
+            document.getElementById("verify_with_question_error").textContent = "Please select an option.";           
+        }
+        isValid = true;
+    }
+
+    isValid = true;
+    // If all validations pass, go to the next section
+    if (isValid) {
+        document.getElementById("section3").style.display = "none";
+        document.getElementById("section4").style.display = "block";
+    } else {
+        alert("Please fill out all required fields correctly.");
+    }
+});
+
+
+
+//section 4 validation 
+document.getElementById("saveNextButtonSection4").addEventListener("click", function (event) {
+   
+
+});
+
+
+//             // Validation for "Any additional funds proposed by district in NHM PIP" (yes --> activities proposed text box)
+//             const additionalFundsYes = document.getElementById("additional_funds_cell_yes");
+//             if (additionalFundsYes.checked) {
+//                 isValid = validateTextInputLength("activities_proposed", 150,"activities_proposed_count");
+//             }
+
+//             // Validation for "Any additional funds available for activities under CSR/JICS/other resources" (yes --> activities proposed text box)
+//             const additionalFundsAvailableYes = document.getElementById("block_quality_cell_additional_yes");
+
+//             if (additionalFundsAvailableYes.checked) {
+//                 isValid = validateTextInputLength("activities_proposed1", 150,"activities_proposed_count1");
+//             }
+
+//             // Validation for "Is the Direct Beneficiary Transfer (DBT) done timely?" (yes --> number inputs for beneficiaries)
+//             const dbtYes = document.getElementById("block_quality_cell_direct_yes");
+//             const dbtQuestionDiv = document.getElementById("dbt_question_label");
+//             const numVillages = document.getElementById("num_villages");
+//             const healthFacilities = document.getElementById("health_facilities");
+//             const totalPhc = document.getElementById("total_phc");
+
+//             if (dbtYes.checked) {
+//                 isValid = validateNumberInputRange(num_villages, 0, 15000,"num_count_error");
+//                 isValid = validateNumberInputRange(health_facilities, 0,15000, "health_count_error");
+//                 isValid = validateNumberInputRange(total_phc, 0, 15000,"total_count_error");
+//             }
+
+//             // Validation for "Verification done with last minutes of meeting"
+//             const verifyWithLastMinYes = document.getElementById("verify_with_last_min_yes");
+//             const verifyWithLastMinNo = document.getElementById("verify_with_last_min_no");
+//             if (!verifyWithLastMinYes.checked && !verifyWithLastMinNo.checked) {
+//                 isValid = false;
+//             }
+
+//             // If all validations pass, go to the next section
+//             if (validateRadioButtons() && isValid) {
+//                 document.getElementById("section3").style.display = "none";
+//                 document.getElementById("section4").style.display = "block";
+//             } else {
+//                 alert("Please fill out all required fields correctly.");
+//             }
+// });
+
+
 function saveAndNext(sectionIndex) {
     const sections = document.querySelectorAll(".section");
     sections.forEach((section, index) => {
@@ -461,103 +448,6 @@ function saveAndNext(sectionIndex) {
     });
 }
 
-
-// function saveAndNext(sectionNumber) {
-   
-//     document.getElementById(`section${sectionNumber}`).style.display = 'none';
-//     const nextSection = sectionNumber + 1;
-//     const nextSectionElement = document.getElementById(`section${nextSection}`);
-//     if (nextSectionElement) {
-//         nextSectionElement.style.display = 'block';
-//     }
-// }
-
-//     function goBackToSection1() {
-//         // Hide Section 2
-//         document.getElementById('section2').classList.add('hidden');
-//         // Show Section 1
-//         document.getElementById('section1').classList.remove('hidden');
-//     }
-// }
-
-
-
-// document.getElementById("saveNextButtonSection2").addEventListener("click", function (event) {
-//     event.preventDefault();
-
-//     let isValid = true;
-    
-//     // Section 1 - Radio Button Validation
-//     function validateRadioButtons() {
-//         const radioGroups = [
-//             'orientation_completed', 
-//             'action_plan_prepared', 
-//             'mchn_plan_available', 
-//             'map_displayed', 
-//             'key_focus_areas', 
-//             'disseminated_with_health_functionaries', 
-//             'monthly_dhs_meeting', 
-//             'review_mechanism', 
-//             'facilities_for_nqas'
-//         ];
-
-//         radioGroups.forEach(groupName => {
-//             const selectedOption = document.querySelector(`input[name="${groupName}"]:checked`);
-
-//             if (!selectedOption) {
-//                 isValid = false;
-//             }
-//         });
-
-//         return isValid;
-//     }
-
-//     // Section 2 - Facilities for NQAS Certification Validation
-//     const hasBlockIdentifiedNQAS = document.getElementById("facilities_for_nqas_yes").checked; 
-//     const phcCount = document.getElementById("num_phc_for_nqas"); 
-//     const chcCount = document.getElementById("num_chc_for_nqas");
-//     const scCount = document.getElementById("num_sc_for_nqas");
-//     const totalFacilities = document.getElementById("num_facilities_for_nqas"); 
-
-//     if (hasBlockIdentifiedNQAS) {
-        
-//         // Validate PHC count (0-50)
-//         if (phcCount.value < 0 || phcCount.value > 50 || isNaN(phcCount.value)) {
-//             isValid = false;
-//             phcCount.classList.add("border-red-500");
-//         } else {
-//             phcCount.classList.remove("border-red-500");
-//         }
-
-//         // Validate CHC count (0-25)
-//         if (chcCount.value < 0 || chcCount.value > 25 || isNaN(chcCount.value)) {
-//             isValid = false;
-//             chcCount.classList.add("border-red-500");
-//         } else {
-//             chcCount.classList.remove("border-red-500");
-//         }
-
-//         // Validate SC count (0-100)
-//         if (scCount.value < 0 || scCount.value > 100 || isNaN(scCount.value)) {
-//             isValid = false;
-//             scCount.classList.add("border-red-500");
-//         } else {
-//             scCount.classList.remove("border-red-500");
-//         }
-
-//         // Auto-calculate total facilities (sum of PHC, CHC, and SC)
-//         const total = parseInt(phcCount.value) + parseInt(chcCount.value) + parseInt(scCount.value);
-//         totalFacilities.value = total;
-
-//         // Validate that total facilities value is correctly calculated
-//         if (totalFacilities.value !== total.toString()) {
-//             isValid = false;
-//             totalFacilities.classList.add("border-red-500");
-//         } else {
-//             totalFacilities.classList.remove("border-red-500");
-//         }
-//     }
-
 //     // Validate Section 1 and Section 2
 //     if (validateRadioButtons() && isValid) {
 //         document.getElementById("section2").style.display = "none";
@@ -566,3 +456,5 @@ function saveAndNext(sectionIndex) {
 //         alert("Please fill out all required fields correctly.");
 //     }
 // });
+
+

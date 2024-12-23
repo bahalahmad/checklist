@@ -1,97 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number Input Validation</title>
+    <title>Health Care Infrastructure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .border-red-500 {
-            border-color: #f56565;
-        }
-        .text-red-500 {
-            color: #f56565;
+        .error {
+            color: red;
+            font-size: 0.8rem;
         }
     </style>
+
+    
 </head>
 <body>
-    <div id="section1" class="section bg-white p-6 rounded shadow-md mb-4">
-        <h2 class="text-3xl font-bold mb-6 text-black-600">Number Input Validation</h2>
-        <p class="text-sm text-red-500 mb-4">* indicates a required field</p>
-
-        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
-            <label class="block text-gray-700 text-lg font-semibold" for="num1">Number 1 (0-20) *</label>
-            <input type="number" id="num1" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" required>
-            <p id="num1Error" class="text-red-500 text-sm mt-1"></p>
+    <div class="bg-white p-4 rounded-lg shadow-md">
+        <h3 class="text-2xl font-semibold text-blue-600 mb-4">Obstetrician and Gynecologist</h3>
+        <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+            <label for="Regular" class="block text-gray-700 text-lg font-semibold col-span-1">Regular</label>
+            <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+                <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+                    <input type="number" id="regular-sanctioned" class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder=" " required oninput="validateSanctionedInput('regular-sanctioned', 'regular-available', 0, 150, 'sanctioned-error')">
+                    <label for="regular-sanctioned" class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">Sanctioned</label>
+                    <div id="sanctioned-error" class="error"></div>
+                </div>
+                <div class="relative w-full sm:w-1/2">
+                    <input type="number" id="regular-available" class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder=" " required disabled oninput="validateAvailableInput('regular-sanctioned', 'regular-available', 'available-error')">
+                    <label for="regular-available" class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">Available</label>
+                    <div id="available-error" class="error"></div>
+                </div>
+            </div>
         </div>
-
-        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
-            <label class="block text-gray-700 text-lg font-semibold" for="num2">Number 2 (0-30) *</label>
-            <input type="number" id="num2" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" required>
-            <p id="num2Error" class="text-red-500 text-sm mt-1"></p>
-        </div>
-
-        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
-            <label class="block text-gray-700 text-lg font-semibold" for="sum">Sum *</label>
-            <input type="number" id="sum" class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" readonly>
-        </div>
-
-        <div class="flex justify-between mb-6">
-            <button type="button" id="saveNextButton" class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300">Save & Next</button>
-        </div>
-    </div>
-
-    <div id="section2" class="section bg-white p-6 rounded shadow-md mb-4" style="display: none;">
-        <!-- Next section content -->
     </div>
 
     <script>
-        document.getElementById("saveNextButton").addEventListener("click", function (event) {
-            event.preventDefault();
+        // Reusable Function to validate Sanctioned Input
+        function validateSanctionedInput() {
+            const sanctionedInput = document.getElementById('regular-sanctioned');
+            const availableInput = document.getElementById('regular-available');
+            const sanctionedValue = parseInt(sanctionedInput.value, 10);
+            const errorMessage = document.getElementById('sanctioned-error');
 
-            let isValid = true;
-            
-            const num1 = document.getElementById("num1");
-            const num2 = document.getElementById("num2");
-            const sum = document.getElementById("sum");
-
-            // Error message elements
-            const num1Error = document.getElementById("num1Error");
-            const num2Error = document.getElementById("num2Error");
-
-            // Reset error messages
-            num1Error.textContent = "";
-            num2Error.textContent = "";
-
-            // Validate num1 (0-20)
-            if (num1.value < 0 || num1.value > 20 || isNaN(num1.value)) {
-                isValid = false;
-                num1.classList.add("border-red-500");
-                num1Error.textContent = "Number should range from 0-20.";
+            if (isNaN(sanctionedValue) || sanctionedValue < 0 || sanctionedValue > 150) {
+                errorMessage.textContent = '*Sanctioned value must be between 0 and 150.';
+                availableInput.disabled = true;
+                availableInput.value = '';
             } else {
-                num1.classList.remove("border-red-500");
+                errorMessage.textContent = '';
+                availableInput.disabled = sanctionedValue === 0;
             }
 
-            // Validate num2 (0-30)
-            if (num2.value < 0 || num2.value > 30 || isNaN(num2.value)) {
-                isValid = false;
-                num2.classList.add("border-red-500");
-                num2Error.textContent = "Number should range from 0-30.";
-            } else {
-                num2.classList.remove("border-red-500");
-            }
+            validateAvailableInput();
+        }
 
-            // Auto-calculate sum
-            const total = (parseInt(num1.value) || 0) + (parseInt(num2.value) || 0);
-            sum.value = total;
+        function validateAvailableInput() {
+            const sanctionedInput = document.getElementById('regular-sanctioned');
+            const availableInput = document.getElementById('regular-available');
+            const availableValue = parseInt(availableInput.value, 10);
+            const sanctionedValue = parseInt(sanctionedInput.value, 10);
+            const errorMessage = document.getElementById('available-error');
 
-            // Proceed if valid
-            if (isValid) {
-                document.getElementById("section1").style.display = "none";
-                document.getElementById("section2").style.display = "block"; // Replace section2 with your actual next section
+            if (!isNaN(sanctionedValue) && sanctionedValue > 0 && (isNaN(availableValue) || availableValue < 0 || availableValue > sanctionedValue)) {
+                errorMessage.textContent = '*Available value must be between 0 and the Sanctioned value.';
             } else {
-                alert("Please fill out all required fields correctly.");
+                errorMessage.textContent = '';
             }
-        });
+        }
     </script>
 </body>
 </html>
+     <!-- <div class="mb-6 grid grid-cols-1 sm:grid-cols-5 gap-4">
+//         <label for="Contractual"
+//             class="block text-gray-700 text-lg font-semibold col-span-1">Contractual</label>
+//         <div class="col-span-4 flex flex-col sm:flex-row sm:space-x-4">
+//             <div class="relative w-full sm:w-1/2 mb-4 sm:mb-0">
+//                 <input type="number" id="contractual-ASHAs-sanctioned"
+//                     class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+//                     placeholder=" " required>
+//                 <label for="contractual-ASHAs-sanctioned"
+//                     class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+//                     Sanctioned
+//                 </label>
+//             </div>
+//             <div class="relative w-full sm:w-1/2">
+//                 <input type="number" id="contractual-ASHAs-available"
+//                     class="peer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+//                     placeholder=" " required>
+//                 <label for="contractual-ASHAs-available"
+//                     class="absolute left-3 -top-2 text-sm text-gray-600 bg-white px-1 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-gray-600">
+//                     Available
+//                 </label>
+//             </div>
+//         </div>
+//     </div>
+
+
+    
+//     <script>document.addEventListener("DOMContentLoaded", function() {
+//         document.getElementById('saveButton').addEventListener('click', function(event) {
+//             event.preventDefault();
+//             let isValid = true;
+//             const medicalSanction = document.getElementById("medical_sanction");
+//             const medicalFunctional = document.getElementById("medical_functional");
+//             const medicalNonFunctional = document.getElementById("medical_non_functional");
+//             const medicalSanctionError = document.getElementById("medical_sanction_error");
+//             const medicalFunctionalError = document.getElementById("medical_functional_error");
+//             // Reset error messages
+//             medicalSanctionError.textContent = "";
+//             medicalFunctionalError.textContent = "";
+//             const sanctionedValue = parseInt(medicalSanction.value, 10);
+//             const functionalValue = parseInt(medicalFunctional.value, 10);
+//             // Validate Sanctioned input
+//             if (isNaN(sanctionedValue) || sanctionedValue < 0 || sanctionedValue > 20) {
+//                 medicalSanctionError.textContent = "Sanctioned value should be a number between 0 and 20.";
+//                 isValid = false;
+//             }
+//             // Validate Functional input
+//             if (sanctionedValue > 0) {
+//                 if (isNaN(functionalValue) || functionalValue < 0 || functionalValue > sanctionedValue) {
+//                     medicalFunctionalError.textContent = "Functional value should be a number between 0 and the sanctioned value.";
+//                     isValid = false;
+//                 }
+//             // Calculate Non-Functional value
+//             if (isValid) {
+//                 const nonFunctionalValue = sanctionedValue - functionalValue;
+//                 medicalNonFunctional.value = nonFunctionalValue >= 0 ? nonFunctionalValue : 0;
+//                 alert('Form is valid and ready to be saved.');
+//             } else {
+//                 alert('Please correct the errors in the form.');
+//         });
+//         // Add input event listeners to update Non-Functional value in real-time
+//         document.getElementById("medical_sanction").addEventListener("input", updateNonFunctional);
+//         document.getElementById("medical_functional").addEventListener("input", updateNonFunctional);
+//         function updateNonFunctional() {
+//             if (!isNaN(sanctionedValue) && !isNaN(functionalValue)) {
+//         }
+//     }); -->
+<!-- //     </script>
+// </body>
+// </html> -->
