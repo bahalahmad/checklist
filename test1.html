@@ -13,7 +13,6 @@
         }
     </style>
 
-
 </head>
 
 <body>
@@ -151,3 +150,31 @@
 <!-- //     </script>
 // </body>
 // </html> -->
+
+
+<h1>NQAS Certification Form</h1>
+<form id="nqasForm">
+    <label for="nqasIdentified">Has the block identified the facilities for NQAS certification?</label>
+    <input type="radio" name="nqasIdentified" id="yes" value="yes" required> Yes
+    <input type="radio" name="nqasIdentified" id="no" value="no" required> No
+    
+    <div id="nqasDetails" style="display: none;">
+        <label for="phc">No. of PHC Identified for NQAS certification (0-50):</label>
+        <input type="number" id="phc" name="phc" oninput="validateNumberRange('phc', 0, 50)" required>
+        <div id="phc_error" class="error"></div>
+
+        <label for="chc">No. of CHC Identified for NQAS certification (0-25):</label>
+        <input type="number" id="chc" name="chc" oninput="validateNumberRange('chc', 0, 25)" required>
+        <div id="chc_error" class="error"></div>
+
+        <label for="sc">No. of SC Identified for NQAS certification (0-100):</label>
+        <input type="number" id="sc" name="sc" oninput="validateNumberRange('sc', 0, 100)" required>
+        <div id="sc_error" class="error"></div>
+
+        <label for="total">Total Number of facilities identified for NQAS certification:</label>
+        <input type="number" id="total" name="total" readonly>
+    </div>
+    
+    <div id="errorMessage">Please ensure all values are valid.</div>
+    <button type="submit">Submit</button>
+</form>

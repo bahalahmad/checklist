@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Assessment Checklist Form</title>
+</head>
+<body>
+    <div id="section2" class="section bg-white p-6 rounded shadow-md mb-4" style="display: none;">
+        <!-- Section Heading Aligned to the Left -->
+        <h2 class="text-3xl font-bold mb-6 text-black-600">Block Preparedness</h2>
+
+        <!-- Required Questions Note at the Top -->
+        <p class="text-sm text-red-500 mb-4">* indicates a required question</p>
+
+        <!-- Questions -->
+        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+            <label class="block text-gray-700 text-lg font-semibold" for="orientation_completed">Orientation on
+                Aspirational Blocks Programme / Sampurnata Abhiyaan completed? <span
+                    class="text-red-500">*</span></label>
+            <div class="mt-2">
+                <label class="inline-flex items-center">
+                    <input type="radio" class="form-radio text-blue-600" id="orientation_completed_yes"
+                        name="orientation_completed" value="yes" required>
+                    <span class="ml-2 text-gray-600">Yes</span>
+                </label>
+                <label class="inline-flex items-center ml-6">
+                    <input type="radio" class="form-radio text-blue-600" id="orientation_completed_no"
+                        name="orientation_completed" value="no">
+                    <span class="ml-2 text-gray-600">No</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+            <label class="block text-gray-700 text-lg font-semibold" for="action_plan_prepared">Block health
+                action plan prepared and available (verify the hard copy)? <span
+                    class="text-red-500">*</span></label>
+            <div class="mt-2">
+                <label class="inline-flex items-center">
+                    <input type="radio" class="form-radio text-blue-600" id="action_plan_prepared_yes"
+                        name="action_plan_prepared" value="yes" required>
+                    <span class="ml-2 text-gray-600">Yes</span>
+                </label>
+                <label class="inline-flex items-center ml-6">
+                    <input type="radio" class="form-radio text-blue-600" id="action_plan_prepared_no"
+                        name="action_plan_prepared" value="no">
+                    <span class="ml-2 text-gray-600">No</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+            <label class="block text-gray-700 text-lg font-semibold" for="mchn_plan_available">MCHN / RI plan
+                available with BCMO? <span class="text-red-500">*</span></label>
+            <div class="mt-2">
+                <label class="inline-flex items-center">
+                    <input type="radio" class="form-radio text-blue-600" id="mchn_plan_available_yes"
+                        name="mchn_plan_available" value="yes" required>
+                    <span class="ml-2 text-gray-600">Yes</span>
+                </label>
+                <label class="inline-flex items-center ml-6">
+                    <input type="radio" class="form-radio text-blue-600" id="mchn_plan_available_no"
+                        name="mchn_plan_available" value="no">
+                    <span class="ml-2 text-gray-600">No</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+            <label class="block text-gray-700 text-lg font-semibold" for="map_displayed">Latest map of the Block
+                displayed at the BCMO office? <span class="text-red-500">*</span></label>
+            <div class="mt-2">
+                <label class="inline-flex items-center">
+                    <input type="radio" class="form-radio text-blue-600" id="map_displayed_yes"
+                        name="map_displayed" value="yes" required>
+                    <span class="ml-2 text-gray-600">Yes</span>
+                </label>
+                <label class="inline-flex items-center ml-6">
+                    <input type="radio" class="form-radio text-blue-600" id="map_displayed_no"
+                        name="map_displayed" value="no">
+                    <span class="ml-2 text-gray-600">No</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Key Focus Areas -->
+        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+            <label class="block text-gray-700 text-lg font-semibold" for="key_focus_areas">Key focus areas
+                identified for strategic interventions? <span class="text-red-500">*</span></label>
+            <div class="mt-2">
+                <label class="inline-flex items-center">
+                    <input type="radio" class="form-radio text-blue-600" id="key_focus_areas_yes"
+                        name="key_focus_areas" value="yes" required>
+                    <span class="ml-2 text-gray-600">Yes</span>
+                </label>
+                <label class="inline-flex items-center ml-6">
+                    <input type="radio" class="form-radio text-blue-600" id="key_focus_areas_no"
+                        name="key_focus_areas" value="no">
+                    <span class="ml-2 text-gray-600">No</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+            <label class="block text-gray-700 text-lg font-semibold"
+                for="disseminated_with_health_functionaries">Whether Block Health Action Plan disseminated with
+                all health functionaries? <span class="text-red-500">*</span></label>
+            <div class="mt-2">
+                <label class="inline-flex items-center">
+                    <input type="radio" class="form-radio text-blue-600"
+                        id="disseminated_with_health_functionaries_yes"
+                        name="disseminated_with_health_functionaries" value="yes" required>
+                    <span class="ml-2 text-gray-600">Yes</span>
+                </label>
+                <label class="inline-flex items-center ml-6">
+                    <input type="radio" class="form-radio text-blue-600"
+                        id="disseminated_with_health_functionaries_no"
+                        name="disseminated_with_health_functionaries" value="no">
+                    <span class="ml-2 text-gray-600">No</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+            <label class="block text-gray-700 text-lg font-semibold" for="monthly_dhs_meeting">Whether monthly
+                DHS meeting with all the line departments organized under chairmanship of DC/DM for Aspirational
+                Blocks Programme? <span class="text-red-500">*</span></label>
+            <div class="mt-2">
+                <label class="inline-flex items-center">
+                    <input type="radio" class="form-radio text-blue-600" id="monthly_dhs_meeting_yes"
+                        name="monthly_dhs_meeting" value="yes" required>
+                    <span class="ml-2 text-gray-600">Yes</span>
+                </label>
+                <label class="inline-flex items-center ml-6">
+                    <input type="radio" class="form-radio text-blue-600" id="monthly_dhs_meeting_no"
+                        name="monthly_dhs_meeting" value="no">
+                    <span class="ml-2 text-gray-600">No</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+            <label class="block text-gray-700 text-lg font-semibold" for="review_mechanism">Is there any review
+                mechanism in place for the overall improvement of KPIs? <span
+                    class="text-red-500">*</span></label>
+            <div class="mt-2">
+                <label class="inline-flex items-center">
+                    <input type="radio" class="form-radio text-blue-600" id="review_mechanism_yes"
+                        name="review_mechanism" value="yes" required>
+                    <span class="ml-2 text-gray-600">Yes</span>
+                </label>
+                <label class="inline-flex items-center ml-6">
+                    <input type="radio" class="form-radio text-blue-600" id="review_mechanism_no"
+                        name="review_mechanism" value="no">
+                    <span class="ml-2 text-gray-600">No</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+            <label class="block text-gray-700 text-lg font-semibold" for="facilities_for_nqas">Has the block
+                identified the facilities for NQAS certification? <span class="text-red-500">*</span></label>
+            <div class="mt-2">
+                <label class="inline-flex items-center">
+                    <input type="radio" class="form-radio text-blue-600" id="facilities_for_nqas_yes"
+                        name="facilities_for_nqas" value="yes" required>
+                    <span class="ml-2 text-gray-600">Yes</span>
+                </label>
+                <label class="inline-flex items-center ml-6">
+                    <input type="radio" class="form-radio text-blue-600" id="facilities_for_nqas_no"
+                        name="facilities_for_nqas" value="no">
+                    <span class="ml-2 text-gray-600">No</span>
+                </label>
+            </div>
+        </div>
+        <div id="nqasDetails" class="hidden">
+            <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                <label class="block text-gray-700 text-lg font-semibold" for="num_phc_for_nqas">No. of PHC
+                    Identified for NQAS certification <span class="text-red-500">*</span></label>
+                <input type="number" id="num_phc_for_nqas"
+                    class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                    name="num_phc_for_nqas"  oninput="validateNumberRange('num_phc_for_nqas', 0, 50)" required>
+                <p id="num_phc_for_nqas_error" class="text-red-500 text-sm"></p>
+            </div>
+            <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                <label class="block text-gray-700 text-lg font-semibold" for="num_chc_for_nqas">No. of CHC
+                    Identified for NQAS certification <span class="text-red-500">*</span></label>
+                <input type="number" id="num_chc_for_nqas"
+                    class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                    name="num_chc_for_nqas" oninput="validateNumberRange('num_chc_for_nqas', 0, 25)" required>
+                <p id="num_chc_for_nqas_error" class="text-red-500 text-sm"></p>
+            </div>
+            <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                <label class="block text-gray-700 text-lg font-semibold" for="num_sc_for_nqas">No. of SC
+                    Identified for NQAS certification <span class="text-red-500">*</span></label>
+                <input type="number" id="num_sc_for_nqas"
+                    class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                    name="num_sc_for_nqas" oninput="validateNumberRange('num_sc_for_nqas', 0, 100)" required>
+                <p id="num_sc_for_nqas_error" class="text-red-500 text-sm"></p>
+            </div>
+            <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+                <label class="block text-gray-700 text-lg font-semibold" for="num_facilities_for_nqas">Total
+                    Number of facilities identified for NQAS certification <span
+                        class="text-red-500">*</span></label>
+                <input type="number" id="num_facilities_for_nqas"
+                    class="form-input mt-2 block w-full p-3 border border-gray-300 rounded-md"
+                    name="num_facilities_for_nqas" readonly>
+            </div>
+        </div>
+
+
+        <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+            <label class="block text-gray-700 text-lg font-semibold" for="referral_mechanism">Is the referral
+                mechanism established from SC-HWC up to DH/other referral centre? <span
+                    class="text-red-500">*</span></label>
+            <div class="mt-2">
+                <label class="inline-flex items-center">
+                    <input type="radio" class="form-radio text-blue-600" id="referral_mechanism_yes"
+                        name="referral_mechanism" value="yes" required>
+                    <span class="ml-2 text-gray-600">Yes</span>
+                </label>
+                <label class="inline-flex items-center ml-6">
+                    <input type="radio" class="form-radio text-blue-600" id="referral_mechanism_no"
+                        name="referral_mechanism" value="no">
+                    <span class="ml-2 text-gray-600">No</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="flex justify-between mb-6">
+            <!-- Back Button on the left -->
+            <button type="button"
+                class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 transform translate-y-[-10%]"
+                onclick="goBackToSection1()">Back</button>
+
+            <!-- Save & Next Button on the right -->
+            <button type="button" id="saveNextButtonSection2"
+                class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300"
+                onclick="saveAndNext(2)">Save & Next</button>
+        </div>
+    </div>
+
+<script>
+        // Show additional fields if 'Yes' is selected
+// Show additional fields if 'Yes' is selected
+// Show additional fields if 'Yes' is selected
+document.querySelectorAll('input[name="facilities_for_nqas"]').forEach((radio) => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'yes') {
+                    document.getElementById('nqasDetails').classList.remove('hidden');
+                } else {
+                    document.getElementById('nqasDetails').classList.add('hidden');
+                    document.getElementById('errorMessage').style.display = 'none';
+                }
+            });
+        });
+
+        // Validate if a value is within the given range
+        function validateNumberRange(id, min, max) {
+            const input = document.getElementById(id);
+            const errorElement = document.getElementById(id + "_error");
+            const value = parseInt(input.value);
+
+            // Check if the value is out of range or invalid
+            if (value < min || value > max || isNaN(value)) {
+                errorElement.textContent = `Value should be between ${min} and ${max}.`;
+            } else {
+                errorElement.textContent = "";
+            }
+            validateTotal(); // Recalculate the total whenever input changes
+        }
+
+        // Validate the total of PHC, CHC, and SC
+        function validateTotal() {
+            const phc = document.getElementById('num_phc_for_nqas').value;
+            const chc = document.getElementById('num_chc_for_nqas').value;
+            const sc = document.getElementById('num_sc_for_nqas').value;
+            
+            // Calculate the total and display it
+            const total = (parseInt(phc) || 0) + (parseInt(chc) || 0) + (parseInt(sc) || 0);
+            document.getElementById('num_facilities_for_nqas').value = total;
+
+            // Show error if total doesn't match the sum
+            if (total !== (parseInt(phc) || 0) + (parseInt(chc) || 0) + (parseInt(sc) || 0)) {
+                document.getElementById('errorMessage').style.display = 'block';
+            } else {
+                document.getElementById('errorMessage').style.display = 'none';
+          
+            }
+        }
+</script>
+
+
+</body>
+
+</html>
