@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Key Programmatic Issues</title>
+</head>
+
+<body class="bg-gray-100 p-6">
+    <div class="container mx-auto p-4">
+        <!-- Form Section -->
+        <form id="dataForm">
+            <!-- Header Section -->
+            <div id="section5" class="section bg-white p-6 rounded shadow-md mb-4">
+                <h2 class="text-3xl font-bold mb-6 text-black-600">Key Programmatic Issues</h2>
+                <p class="text-sm text-red-500 mb-4">* indicates a required question</p>
+                <div class="text-right">
+                    <span class="text-sm text-red-500 bg-gray-200 rounded-full px-2 py-1">8/8</span>
+                </div>
+                <div>
+                <p class="text-m bg-gray-200 p-2 rounded-lg shadow-md mt-4"><span>&#8505; </span> identify and mark top 3 issues</p>
+                </div>
+
+            <!-- RMNCHA+N Programme Section -->
+            <div id="RMNCHA-section" class="bg-white p-6 rounded-lg shadow-md mt-4">
+                <h2 class="text-2xl font-semibold text-blue-600 mb-4">
+                    Reproductive, Maternal, Newborn, Child Health and Adolescent Health & Nutrition (RMNCHA+N) Programme
+                </h2>
+                <div class="mb-4">
+                    <div class="flex justify-between items-center">
+                        <div class="text-gray-700 text-lg font-semibold">RMNCHA+N</div>
+                        <button type="button" class="select-btn bg-blue-500 text-white px-4 py-2 rounded-lg"
+                            data-title="Key programmatic issue- RMNCHA+N"
+                            data-options="Infrastructure (Facility structure),Supply and Demand (Pharmaceuticals and Laboratory),Fund Accessibility,Training,Logistics,Equipments,Human Resource"
+                            data-target="RMNCHA-selected-items">
+                            Select
+                        </button>
+                    </div>
+                    <div id="RMNCHA-selected-items" class="selected-items flex mt-2 flex-wrap gap-2">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- Do the other sections yourself. copy paste the above and section label names -->
+
+        <!-- Modal for selection -->
+        <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex justify-center items-center">
+            <div class="bg-white p-6 rounded-lg w-96">
+                <h3 id="modalTitle" class="text-xl font-semibold mb-4"></h3>
+                <div id="modalOptions" class="flex flex-col gap-3"></div>
+                <p id="errorMessage" class="text-red-500 text-sm mt-2 hidden">Maximum 3 options can be selected.</p>
+                <div class="flex justify-between mt-4">
+                    <button id="resetBtn" class="bg-gray-500 text-white py-2 px-4 rounded-lg">Reset</button>
+                    <button id="saveBtn" class="bg-blue-500 text-white py-2 px-4 rounded-lg">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const selectBtns = document.querySelectorAll(".select-btn");
+        const modal = document.getElementById("modal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalOptions = document.getElementById("modalOptions");
+        const errorMessage = document.getElementById("errorMessage");
+        const resetBtn = document.getElementById("resetBtn");
+        const saveBtn = document.getElementById("saveBtn");
+
+        let currentTarget = null; // Stores the target element where selected options are displayed
+
+        // Event listener for "Select" buttons
+        selectBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                const title = btn.getAttribute("data-title");
+                const options = btn.getAttribute("data-options").split(",");
+                currentTarget = document.getElementById(btn.getAttribute("data-target"));
+
+                // Retrieve already selected options
+                const alreadySelected = Array.from(currentTarget.querySelectorAll("span"))
+                    .map(item => item.textContent.trim());
+
+                modalTitle.textContent = title;
+                modalOptions.innerHTML = "";
+
+                // Populate checkboxes and mark already selected options
+                options.forEach(option => {
+                    const checkbox = document.createElement("div");
+                    checkbox.innerHTML = `
+                        <label class="flex items-center">
+                            <input type="checkbox" value="${option}" class="mr-2" ${alreadySelected.includes(option) ? "checked" : ""}>
+                            ${option}
+                        </label>
+                    `;
+                    modalOptions.appendChild(checkbox);
+                });
+
+                modal.classList.remove("hidden");
+            });
+        });
+
+        // Limit selection to 3 options
+        modalOptions.addEventListener("change", () => {
+            const selectedCheckboxes = modalOptions.querySelectorAll("input[type='checkbox']:checked");
+            const totalSelected = selectedCheckboxes.length;
+
+            if (totalSelected >= 3) {
+                errorMessage.classList.remove("hidden");
+                modalOptions.querySelectorAll("input[type='checkbox']").forEach(checkbox => {
+                    if (!checkbox.checked) {
+                        checkbox.disabled = true; // Disable unchecked options
+                    }
+                });
+            } else {
+                errorMessage.classList.add("hidden");
+                modalOptions.querySelectorAll("input[type='checkbox']").forEach(checkbox => {
+                    checkbox.disabled = false; // Re-enable all options if less than 3 are selected
+                });
+            }
+        });
+
+        // Reset modal selections
+        resetBtn.addEventListener("click", () => {
+            modalOptions.querySelectorAll("input[type='checkbox']").forEach(checkbox => {
+                checkbox.checked = false;
+                checkbox.disabled = false;
+            });
+            errorMessage.classList.add("hidden");
+        });
+
+        // Save selected options
+        saveBtn.addEventListener("click", () => {
+            const selectedOptions = [];
+            modalOptions.querySelectorAll("input[type='checkbox']:checked").forEach(checkbox => {
+                selectedOptions.push(checkbox.value);
+            });
+
+            if (currentTarget) {
+                currentTarget.innerHTML = "";
+                selectedOptions.forEach(option => {
+                    const item = document.createElement("div");
+                    item.className = "flex items-center bg-gray-200 text-gray-800 px-2 py-1 rounded-full gap-2";
+                    item.innerHTML = `
+                        <span>${option}</span>
+                        <button class="remove-btn text-red-500 font-bold">&times;</button>
+                    `;
+
+                    // Add event listener to the remove button
+                    item.querySelector(".remove-btn").addEventListener("click", () => {
+                        item.remove();
+                    });
+
+                    currentTarget.appendChild(item);
+                });
+            }
+
+            modal.classList.add("hidden");
+        });
+
+        // Close modal on outside click
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.classList.add("hidden");
+            }
+        });
+    </script>
+</body>
+
+</html>

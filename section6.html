@@ -184,6 +184,11 @@
                         </div>
                     </div>
                    </div>
+                   <div class="flex justify-end mt-6">
+                    <button type="button" id="saveNextButtonSection7"
+                        class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300"
+                        >Save & Next</button>
+                </div>
             </div>
         </form>
     </div>
@@ -200,70 +205,220 @@
         </div>
     </div>
 
+    
     <script>
-        const selectBtns = document.querySelectorAll(".select-btn");
-        const modal = document.getElementById("modal");
-        const modalTitle = document.getElementById("modalTitle");
-        const modalOptions = document.getElementById("modalOptions");
-        const saveBtn = document.getElementById("saveBtn");
-        const resetBtn = document.getElementById("resetBtn");
-        let currentSelectedContainer = null;
-        const selectedItemsStore = {};
+       document.addEventListener("DOMContentLoaded", () => {
+    const selectBtns = document.querySelectorAll(".select-btn");
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalOptions = document.getElementById("modalOptions");
+    const saveBtn = document.getElementById("saveBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const saveNextButton = document.getElementById("saveNextButtonSection7");
+    let currentSelectedContainer = null;
+    const selectedItemsStore = {};
 
-        selectBtns.forEach(button => {
-            button.addEventListener("click", function () {
-                const title = this.getAttribute("data-title");
-                const options = this.getAttribute("data-options");
-                currentSelectedContainer = this.closest(".section").querySelector(`#${this.getAttribute("data-target")}`);
-                const previouslySelected = selectedItemsStore[title] || [];
+    // Helper function to generate a valid ID for error messages
+    function generateId(title) {
+        return title.replace(/[^a-zA-Z0-9-_]/g, "-");
+    }
 
-                modalTitle.textContent = title;
-                modalOptions.innerHTML = createCheckboxes(options, previouslySelected);
-                modal.classList.remove("hidden");
+    // Open Modal
+    selectBtns.forEach(button => {
+        button.addEventListener("click", function () {
+            const title = this.getAttribute("data-title");
+            const options = this.getAttribute("data-options");
+            currentSelectedContainer = this.closest(".section").querySelector(`#${this.getAttribute("data-target")}`);
+            const previouslySelected = selectedItemsStore[title] || [];
+
+            modalTitle.textContent = title;
+            modalOptions.innerHTML = createCheckboxes(options, previouslySelected);
+
+            // Attach dynamic event listeners to remove errors when a checkbox is selected
+            modalOptions.querySelectorAll("input[type='checkbox']").forEach(checkbox => {
+                checkbox.addEventListener("change", function () {
+                    const errorMessageId = generateId(`${modalTitle.textContent}-error`);
+                    const errorElement = document.getElementById(errorMessageId);
+                    if (errorElement) {
+                        errorElement.textContent = "";
+                        currentSelectedContainer.classList.remove("border", "border-red-500");
+                    }
+                });
             });
+
+            modal.classList.remove("hidden");
         });
+    });
 
-        // Save Button Action
-        saveBtn.addEventListener("click", function () {
-            const selectedCheckboxes = Array.from(modalOptions.querySelectorAll("input:checked"));
-            const selectedValues = selectedCheckboxes.map(checkbox => checkbox.value);
+    // Save Button in Modal
+    saveBtn.addEventListener("click", function () {
+        const selectedCheckboxes = Array.from(modalOptions.querySelectorAll("input:checked"));
+        const selectedValues = selectedCheckboxes.map(checkbox => checkbox.value);
 
-            // Store the selected values using the unique title
-            selectedItemsStore[modalTitle.textContent] = selectedValues;
+        if (selectedValues.length === 0) {
+            alert("Please select at least one option.");
+            return;
+        }
 
-            // Display selected items in the UI
-            currentSelectedContainer.innerHTML = selectedValues.map(item => `<span class="px-2 py-1 bg-gray-300 rounded">${item} <span class="cursor-pointer" onclick="removeItem(this)">×</span></span>`).join("");
+        // Store selected values in the state
+        selectedItemsStore[modalTitle.textContent] = selectedValues;
 
+        // Display selected items in the UI
+        currentSelectedContainer.innerHTML = selectedValues.map(item => `
+            <span class="px-2 py-1 bg-gray-300 rounded">
+                ${item} <span class="cursor-pointer" onclick="removeItem(this)">×</span>
+            </span>`).join("");
+
+        modal.classList.add("hidden");
+    });
+
+    // Reset Button in Modal
+    resetBtn.addEventListener("click", function () {
+        modalOptions.querySelectorAll("input").forEach(input => input.checked = false);
+    });
+
+    // Close Modal when clicking outside
+    modal.addEventListener("click", function (e) {
+        if (e.target === modal) {
             modal.classList.add("hidden");
-        });
+        }
+    });
 
-        // Reset Button Action
-        resetBtn.addEventListener("click", function () {
-            modalOptions.querySelectorAll("input").forEach(input => input.checked = false);
-        });
+    // Remove Selected Item
+    window.removeItem = function (item) {
+        const span = item.parentElement;
+        const container = span.parentElement;
 
-        // Close Modal when clicking outside
-        modal.addEventListener("click", function (e) {
-            if (e.target === modal) {
-                modal.classList.add("hidden");
+        // Remove from UI
+        const sectionTitle = container.closest(".section").querySelector("button.select-btn").getAttribute("data-title");
+        const valueToRemove = span.textContent.trim().replace("×", "").trim();
+
+        // Update the state
+        if (selectedItemsStore[sectionTitle]) {
+            selectedItemsStore[sectionTitle] = selectedItemsStore[sectionTitle].filter(value => value !== valueToRemove);
+        }
+
+        // Remove the element from the DOM
+        span.remove();
+    };
+
+    // Save & Next Button Action
+    saveNextButton.addEventListener("click", function () {
+        const allSections = document.querySelectorAll(".section");
+        let isValid = true;
+
+        allSections.forEach(section => {
+            const selectedItemsContainer = section.querySelector(".selected-items");
+            const title = section.querySelector("button.select-btn").getAttribute("data-title");
+            const errorMessageId = generateId(`${title}-error`);
+
+            // Create error message container if it doesn't exist
+            let errorElement = section.querySelector(`#${errorMessageId}`);
+            if (!errorElement) {
+                errorElement = document.createElement("p");
+                errorElement.id = errorMessageId;
+                errorElement.className = "text-red-500 text-sm mt-1";
+                selectedItemsContainer.parentElement.appendChild(errorElement);
+            }
+
+            // Validate field
+            if (!selectedItemsStore[title] || selectedItemsStore[title].length === 0) {
+                isValid = false;
+                selectedItemsContainer.classList.add("border", "border-red-500");
+                errorElement.textContent = "This field is required. Please select at least one option.";
+            } else {
+                selectedItemsContainer.classList.remove("border", "border-red-500");
+                errorElement.textContent = "";
             }
         });
 
-        // Remove Selected Item
-        function removeItem(item) {
-            item.parentElement.remove();
+        if (!isValid) {
+            alert("Please complete all required fields before proceeding.");
+            return;
         }
 
-        function createCheckboxes(options, previouslySelected) {
-            const optionsList = options.split(",");
-            return optionsList.map(option => {
-                const checked = previouslySelected.includes(option.trim()) ? 'checked' : '';
-                return `<label class="flex items-center">
-                            <input type="checkbox" value="${option.trim()}" ${checked} class="mr-2">
-                            ${option.trim()}
-                        </label>`;
-            }).join("");
-        }
+        alert("Form submitted successfully!");
+        // Add actual form submission logic here
+    });
+
+    // Helper function to create checkboxes
+    function createCheckboxes(options, previouslySelected) {
+        const optionsList = options.split(",");
+        return optionsList.map(option => {
+            const checked = previouslySelected.includes(option.trim()) ? 'checked' : '';
+            return `
+                <label class="flex items-center">
+                    <input type="checkbox" value="${option.trim()}" ${checked} class="mr-2">
+                    ${option.trim()}
+                </label>`;
+        }).join("");
+    }
+});
+
+
+        // const selectBtns = document.querySelectorAll(".select-btn");
+        // const modal = document.getElementById("modal");
+        // const modalTitle = document.getElementById("modalTitle");
+        // const modalOptions = document.getElementById("modalOptions");
+        // const saveBtn = document.getElementById("saveBtn");
+        // const resetBtn = document.getElementById("resetBtn");
+        // let currentSelectedContainer = null;
+        // const selectedItemsStore = {};
+
+        // selectBtns.forEach(button => {
+        //     button.addEventListener("click", function () {
+        //         const title = this.getAttribute("data-title");
+        //         const options = this.getAttribute("data-options");
+        //         currentSelectedContainer = this.closest(".section").querySelector(`#${this.getAttribute("data-target")}`);
+        //         const previouslySelected = selectedItemsStore[title] || [];
+
+        //         modalTitle.textContent = title;
+        //         modalOptions.innerHTML = createCheckboxes(options, previouslySelected);
+        //         modal.classList.remove("hidden");
+        //     });
+        // });
+
+        // // Save Button Action
+        // saveBtn.addEventListener("click", function () {
+        //     const selectedCheckboxes = Array.from(modalOptions.querySelectorAll("input:checked"));
+        //     const selectedValues = selectedCheckboxes.map(checkbox => checkbox.value);
+
+        //     // Store the selected values using the unique title
+        //     selectedItemsStore[modalTitle.textContent] = selectedValues;
+
+        //     // Display selected items in the UI
+        //     currentSelectedContainer.innerHTML = selectedValues.map(item => `<span class="px-2 py-1 bg-gray-300 rounded">${item} <span class="cursor-pointer" onclick="removeItem(this)">×</span></span>`).join("");
+
+        //     modal.classList.add("hidden");
+        // });
+
+        // // Reset Button Action
+        // resetBtn.addEventListener("click", function () {
+        //     modalOptions.querySelectorAll("input").forEach(input => input.checked = false);
+        // });
+
+        // // Close Modal when clicking outside
+        // modal.addEventListener("click", function (e) {
+        //     if (e.target === modal) {
+        //         modal.classList.add("hidden");
+        //     }
+        // });
+
+        // // Remove Selected Item
+        // function removeItem(item) {
+        //     item.parentElement.remove();
+        // }
+
+        // function createCheckboxes(options, previouslySelected) {
+        //     const optionsList = options.split(",");
+        //     return optionsList.map(option => {
+        //         const checked = previouslySelected.includes(option.trim()) ? 'checked' : '';
+        //         return `<label class="flex items-center">
+        //                     <input type="checkbox" value="${option.trim()}" ${checked} class="mr-2">
+        //                     ${option.trim()}
+        //                 </label>`;
+        //     }).join("");
+        // }
     </script>
 </body>
 

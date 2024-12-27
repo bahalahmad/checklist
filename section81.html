@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Key Programmatic Issues</title>
+</head>
+
+<body class="bg-gray-100 p-6">
+    <div class="container mx-auto p-4">
+        <form id="dataForm">
+            <!-- Header Section -->
+            <div id="section8" class="section bg-white p-6 rounded shadow-md mb-4">
+                <p class="text-m bg-gray-200 p-2 rounded-lg shadow-md mt-4">
+                    <span>&#8505; </span> Identify and mark top 3 issues
+                </p>
+                <p class="text-sm text-red-500 mb-4">* indicates a required question</p>
+                <div class="text-right">
+                    <span class="text-sm text-red-500 bg-gray-200 rounded-full px-2 py-1">8/8</span>
+                </div>
+            </div>
+
+            <!-- Programme Sections -->
+            <div class="section bg-white p-6 rounded shadow-md mb-4">
+                <h2 class="text-2xl font-semibold text-blue-600 mb-4">Reproductive, Maternal, Newborn, Child Health and Adolescent Health & Nutrition (RMNCHA+N)</h2>
+                <div class="flex justify-between items-center mb-4">
+                    <div class="text-gray-700 text-lg font-semibold">RMNCHA+N</div>
+                    <button type="button" class="select-btn bg-blue-500 text-white px-4 py-2 rounded-lg"
+                        data-title="RMNCHA+N Capacity Building"
+                        data-options="Infrastructure,Supply and Demand,Training,Logistics,Human Resource"
+                        data-target="RMNCHA-selected-items">
+                        Select
+                    </button>
+                </div>
+                <div id="RMNCHA-selected-items" class="selected-items flex mt-2 flex-wrap gap-2"></div>
+            </div>
+
+            <!-- Other Sections (Example for brevity) -->
+            <!-- Add similar sections for NTEP, NCD, QA, CPHC, HSS, NVBDCP, Immunization -->
+        </form>
+    </div>
+
+    <script>
+        document.querySelectorAll(".select-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const title = this.dataset.title;
+                const options = this.dataset.options.split(",");
+                const targetId = this.dataset.target;
+                const selectedContainer = document.getElementById(targetId);
+
+                // Clear current selections
+                selectedContainer.innerHTML = "";
+
+                // Display options as checkboxes
+                options.forEach(option => {
+                    const optionDiv = document.createElement("div");
+                    optionDiv.classList.add("flex", "items-center", "gap-2");
+                    optionDiv.innerHTML = `
+                        <input type="checkbox" id="${option}" name="${targetId}" value="${option}" class="form-checkbox">
+                        <label for="${option}" class="text-sm text-gray-700">${option}</label>
+                    `;
+                    selectedContainer.appendChild(optionDiv);
+                });
+            });
+        });
+
+        // Optionally, handle form submission
+        document.getElementById("dataForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const selectedData = {};
+
+            formData.forEach((value, key) => {
+                if (!selectedData[key]) selectedData[key] = [];
+                selectedData[key].push(value);
+            });
+
+            console.log("Selected Data:", selectedData);
+            alert("Form submitted successfully!");
+        });
+    </script>
+</body>
+
+</html>
